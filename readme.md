@@ -10,6 +10,7 @@ The [Complex Property Model][1] provides a framework for extending a pre-defined
 This repository presents an OWL representaion of the Complex Property Model.
 
 ## Classes
+The Complex Property Model ontology defines many of its classes as subclassess of SKOS Concwepts in order to allow the use of vocabulary entries from SKOS Concept Schemes or Collections as instances of the CPM ontology classes.
 ### Comparison Operator Value
 An enumeration of comparison operators
 #### Individuals
@@ -40,7 +41,7 @@ these Phenomena may be provided together in one Observation. In this case a Comp
             
 An example of a strongly linked pair of Phenomena is wind speed and wind direction
 #### ObservableProperty
-At its simplest an ObservableProperty simply carries a reference to a phenomenon definition in a codelist with optional units of measure. However an ObservableProperty definition may be augmented using Constraints and/or Statistical Measures to create a more full definition of the observed property.
+At its simplest an ObservableProperty simply carries a reference to a phenomenon definition in a codelist with optional units of measure. However an ObservableProperty definition may be augmented using Constraints and/or Statistical Measures to create a more full definition of the observed property. This class is declared as equivalent to the [Observable Property][3] ontology's "Property Kind" class.
 ### Range Bounds
 The start and end bounding values of a numerical range (e.g. start >=50, end <=99).
 ### Statistical Measure
@@ -49,3 +50,4 @@ A description of some statistical measure e.g. "daily maximum". The measure is u
 <!-- References -->
 [1]: http://inspire.jrc.ec.europa.eu/documents/Data_Specifications/D2.9_O&M_Guidelines_v2.0rc3.pdf
 [2]: http://www.opengeospatial.org/standards/om
+[3]: http://environment.data.gov.au/def/op
