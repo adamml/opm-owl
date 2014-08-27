@@ -396,6 +396,7 @@
         <rdfs:domain rdf:resource="http://onto.nerc.ac.uk/cpm#ObservableProperty"/>
         <rdfs:subPropertyOf rdf:resource="http://onto.nerc.ac.uk/cpm#StatisticalMeasure"/>
         <rdfs:subPropertyOf rdf:resource="&skos;related"/>
+		<rdfs:subPropertyOf rdf:resource="&op;constraint"/>
     </owl:ObjectProperty>
     
 
