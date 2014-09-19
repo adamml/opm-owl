@@ -295,7 +295,6 @@
         <rdfs:range rdf:resource="http://purl.org/voc/cpm#StatisticalMeasure"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.org/voc/cpm#StatisticalMeasure"/>
         <rdfs:subPropertyOf rdf:resource="&skos;related"/>
-		<rdfs:subPropertyOf rdf:resource="&op;constraint"/>
     </owl:ObjectProperty>
     
 
