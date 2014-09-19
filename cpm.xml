@@ -240,6 +240,7 @@
     <owl:ObjectProperty rdf:about="http://purl.org/voc/cpm#opProperty">
         <rdfs:label xml:lang="en">property</rdfs:label>
         <rdfs:domain rdf:resource="http://purl.org/voc/cpm#ObservableProperty"/>
+        <rdfs:range rdf:resource="http://purl.org/voc/cpm#Property"/>
         <rdfs:subPropertyOf rdf:resource="http://purl.org/voc/cpm#property"/>
     </owl:ObjectProperty>
     
@@ -544,14 +545,14 @@
         <rdfs:subClassOf rdf:resource="&skos;Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#component"/>
-                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minCardinality>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#count"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#count"/>
-                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#component"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <owl:disjointWith rdf:resource="http://purl.org/voc/cpm#ObservableProperty"/>
@@ -573,26 +574,26 @@ An example of a strongly linked pair of Phenomena is wind speed and wind directi
         <rdfs:subClassOf rdf:resource="&skos;Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#constraintProperty"/>
-                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#label"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/voc/cpm#constraintProperty"/>
                 <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#constraintProperty"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/voc/cpm#constraintLabel"/>
                 <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#label"/>
-                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <skos:notation rdf:datatype="http://vocab.nerc.ac.uk/datatypes/datatypes.xml#OPMClassName">
@@ -632,27 +633,9 @@ An example of a strongly linked pair of Phenomena is wind speed and wind directi
         <rdfs:subClassOf rdf:resource="&skos;Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#statisticalMeasure"/>
-                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/voc/cpm#objectOfInterest"/>
                 <owl:onClass rdf:resource="http://purl.org/voc/cpm#ObjectOfInterest"/>
                 <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#restriction"/>
-                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#opProperty"/>
-                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -663,7 +646,26 @@ An example of a strongly linked pair of Phenomena is wind speed and wind directi
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#opProperty"/>
+                <owl:onClass rdf:resource="http://purl.org/voc/cpm#Property"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#restriction"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/voc/cpm#opUnitOfMeasure"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#statisticalMeasure"/>
                 <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -689,6 +691,16 @@ An example of a strongly linked pair of Phenomena is wind speed and wind directi
     
 
 
+    <!-- http://purl.org/voc/cpm#Property -->
+
+    <owl:Class rdf:about="http://purl.org/voc/cpm#Property">
+        <rdfs:label>Property</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&skos;Concept"/>
+        <skos:definition>The property of the environment which the ObservableProperty is describing.</skos:definition>
+    </owl:Class>
+    
+
+
     <!-- http://purl.org/voc/cpm#StatisticalMeasure -->
 
     <owl:Class rdf:about="http://purl.org/voc/cpm#StatisticalMeasure">
@@ -696,67 +708,13 @@ An example of a strongly linked pair of Phenomena is wind speed and wind directi
         <rdfs:subClassOf rdf:resource="&skos;Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#aggregationArea"/>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#otherAggregation"/>
                 <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#aggregationArea"/>
-                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/voc/cpm#derivedFrom"/>
-                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#aggregationLength"/>
-                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#aggregationTimePeriod"/>
-                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#aggregationTimePeriod"/>
-                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#statmLabel"/>
-                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#otherAggregation"/>
-                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#aggregationVolume"/>
-                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#statmLabel"/>
-                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#aggregationVolume"/>
                 <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -768,7 +726,7 @@ An example of a strongly linked pair of Phenomena is wind speed and wind directi
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#otherAggregation"/>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#aggregationArea"/>
                 <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -776,6 +734,60 @@ An example of a strongly linked pair of Phenomena is wind speed and wind directi
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.org/voc/cpm#aggregationLength"/>
                 <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#aggregationVolume"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#statmLabel"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#aggregationTimePeriod"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#statmLabel"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#aggregationVolume"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#otherAggregation"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#aggregationTimePeriod"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#aggregationLength"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#aggregationArea"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <skos:notation rdf:datatype="http://vocab.nerc.ac.uk/datatypes/datatypes.xml#OPMClassName">

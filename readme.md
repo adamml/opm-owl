@@ -48,6 +48,8 @@ A specialisation of ObjectOfInterest for use where the Object of Interest is a p
 A specialisation of ObjectOfInterest for use where the Object of Interest is a chemical substance
 #### Taxon
 A specialisation of ObjectOfInterest for use where the Object of Interest is an organism with a binomial classification
+### Property
+The property of the environment which the ObservableProperty is describing.
 
 <!-- References -->
 [1]: http://inspire.jrc.ec.europa.eu/documents/Data_Specifications/D2.9_O&M_Guidelines_v2.0rc3.pdf
