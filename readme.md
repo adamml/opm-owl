@@ -9,6 +9,8 @@ The [Complex Property Model][1] provides a framework for extending a pre-defined
 
 This repository presents an OWL representaion of the Complex Property Model.
 
+The OWL ontology file can be accessed via a PURL at [http://purl.org/voc/cpm][3], with a preferred namespace URI of [http://purl.org/voc/cpm#][4] and a preferred namespace prefix of cpm 
+
 ## Classes
 The Complex Property Model ontology defines many of its classes as subclassess of SKOS Concwepts in order to allow the use of vocabulary entries from SKOS Concept Schemes or Collections as instances of the CPM ontology classes.
 ### Comparison Operator Value
@@ -21,15 +23,7 @@ An enumeration of comparison operators
 ##### lessthanOrEqualTo
 ##### notEqualTo
 ### Constraint
-In order to provide other constraints on ObservableProperties, the type Constraint has been created and can be associated with an ObservableProperty. Constraint types have been provided for scalar, range and category constraints, as well as a generic OtherConstraint data type. The following list provides examples for the constraint types defined: 
-#### Category Constraint
-A constraint based on some qualifying category. e.g. colour = 'Red'. The value ('Red') of the constraint ('colour') can be any string, although it may be desirable to constrain this in particular application domains.
-#### Range Constraint
-A numerical range constraint on some property e.g. wavelength >=300nm  and wavelength <=600nm. To be used when data is observed in particular bands or groupings based on a numerical quantity.
-#### Scalar Constraint
-A numerical scalar constraint on some property e.g. length >= 1m 
-#### Other Constraint
-Any other constraint type not easily expressed using the other Constraint types.This type may be specialised or the simple description attribute may be used to provide a free text description of the constraint.
+In order to provide other constraints on ObservableProperties, the type Constraint has been created and can be associated with an ObservableProperty. A constaraint may be specialised or the simple description attribute may be used to provide a free text description of the constraint.
 ### Abstract Observable Property
 The AbstractObservableProperty class is the root of the ObservableProperty model. It is implemented by two specialisations: ObservableProperty and CompositeObservableProperty.
 #### CompositeObservableProperty
@@ -41,13 +35,22 @@ these Phenomena may be provided together in one Observation. In this case a Comp
             
 An example of a strongly linked pair of Phenomena is wind speed and wind direction
 #### ObservableProperty
-At its simplest an ObservableProperty simply carries a reference to a phenomenon definition in a codelist with optional units of measure. However an ObservableProperty definition may be augmented using Constraints and/or Statistical Measures to create a more full definition of the observed property. This class is declared as equivalent to the [Observable Property][3] ontology's "Property Kind" class.
-### Range Bounds
-The start and end bounding values of a numerical range (e.g. start >=50, end <=99).
+At its simplest an ObservableProperty simply carries a reference to a phenomenon definition in a codelist with optional units of measure. However an ObservableProperty definition may be augmented using Constraints and/or Statistical Measures to create a more full definition of the observed property.
 ### Statistical Measure
 A description of some statistical measure e.g. "daily maximum". The measure is usually some function over some time (e.g. an hour, a day) or space (e.g. a length, area or volume). Other aggregation types can be supported by the 'otherAggregation' extension point.
+### Matrix
+The matrix is a special case of a feature-of-interest that provides the context (container feeaure or medium) for an observable property.
+### Object of Interest
+The substance, taxon or other physical/chemical phenomenon of the Feature Of Interest that is being observed. E.g.  Waves, Rainfall, *Calluna Vulgaris*, Aluminium.
+#### Phenomenon
+A specialisation of ObjectOfInterest for use where the Object of Interest is a physical phenomen, such as "throughfall" or "waves".
+#### Substance
+A specialisation of ObjectOfInterest for use where the Object of Interest is a chemical substance
+#### Taxon
+A specialisation of ObjectOfInterest for use where the Object of Interest is an organism with a binomial classification
 
 <!-- References -->
 [1]: http://inspire.jrc.ec.europa.eu/documents/Data_Specifications/D2.9_O&M_Guidelines_v2.0rc3.pdf
 [2]: http://www.opengeospatial.org/standards/om
-[3]: http://environment.data.gov.au/def/op
+[3]: http://purl.org/voc/cpm
+[4]: http://purl.org/voc/cpm#

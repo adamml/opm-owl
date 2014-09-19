@@ -8,34 +8,29 @@
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
-    <!ENTITY op "http://environment.data.gov.au/def/op#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
 ]>
 
 
-<rdf:RDF xmlns="http://onto.nerc.ac.uk/cpm#"
-     xml:base="http://onto.nerc.ac.uk/cpm"
+<rdf:RDF xmlns="http://purl.org/voc/cpm#"
+     xml:base="http://purl.org/voc/cpm"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:op="http://environment.data.gov.au/def/op#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:vann="http://purl.org/vocab/vann/"
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:dcterms="http://purl.org/dc/terms/">
-    <owl:Ontology rdf:about="http://onto.nerc.ac.uk/cpm">
+    <owl:Ontology rdf:about="http://purl.org/voc/cpm">
         <rdfs:label xml:lang="en">
             Complex Property Model ontology
         </rdfs:label>
-        <rdfs:comment xml:lang="en">
-            An OWL representation of the Complex Property Model (CPM).
+        <vann:preferredNamespaceUri>http://purl.org/voc/cpm#</vann:preferredNamespaceUri>
+        <rdfs:comment xml:lang="en">An OWL representation of the Complex Property Model (CPM).
 
-            The ontology here encodes the CPM defined in the INSPIRE
-            guidelines for Observations &amp; Measurements and Sensor Web
-            Enablement-related standards document.
+ The ontology here encodes the CPM defined in the INSPIRE guidelines for Observations &amp; Measurements and Sensor Web Enablement-related standards document.
         </rdfs:comment>
         <vann:preferredNamespacePrefix>cpm</vann:preferredNamespacePrefix>
-        <vann:preferredNamespaceUri>http://onto.nerc.ac.uk/cpm#</vann:preferredNamespaceUri>
     </owl:Ontology>
     
 
@@ -91,310 +86,214 @@
     
 
 
-    <!-- http://def.seegrid.csiro.au/static/isotc211/iso19156/2011/observation.rdf#observedProperty -->
+    <!-- http://purl.org/voc/cpm#StatisticalMeasure -->
 
-    <owl:ObjectProperty rdf:about="http://def.seegrid.csiro.au/static/isotc211/iso19156/2011/observation.rdf#observedProperty">
-        <rdfs:range rdf:resource="http://def.seegrid.csiro.au/static/isotc211/iso19156/2011/observation.rdf#Observation"/>
-        <rdfs:domain rdf:resource="http://onto.nerc.ac.uk/cpm#AbstractObservableProperty"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://onto.nerc.ac.uk/cpm#StatisticalMeasure -->
-
-    <owl:ObjectProperty rdf:about="http://onto.nerc.ac.uk/cpm#StatisticalMeasure">
+    <owl:ObjectProperty rdf:about="http://purl.org/voc/cpm#StatisticalMeasure">
         <rdfs:label xml:lang="en">Statistical Measure</rdfs:label>
         <skos:notation rdf:datatype="http://vocab.nerc.ac.uk/datatypes/datatypes.xml#OPMClassName">
             Statistical Measure
         </skos:notation>
         <skos:definition xml:lang="en">
-            A description of some statistical measure e.g. &quot;daily maximum&quot;.
-            The measure is usually some function over some time (e.g. an hour,
-            a day) or space (e.g. a length, area or volume). Other aggregation
-            types can be supported by the &apos;otherAggregation&apos; extension point.
+            A description of some statistical measure e.g. &quot;daily maximum&quot;. The measure is usually some function over some time (e.g. an hour, a day) or space (e.g. a length, area or volume). Other aggregation types can be supported by the &apos;otherAggregation&apos; extension point.
         </skos:definition>
         <rdfs:subPropertyOf rdf:resource="&skos;related"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://onto.nerc.ac.uk/cpm#UnitOfMeasure -->
+    <!-- http://purl.org/voc/cpm#UnitOfMeasure -->
 
-    <owl:ObjectProperty rdf:about="http://onto.nerc.ac.uk/cpm#UnitOfMeasure"/>
+    <owl:ObjectProperty rdf:about="http://purl.org/voc/cpm#UnitOfMeasure"/>
     
 
 
-    <!-- http://onto.nerc.ac.uk/cpm#aggregation -->
+    <!-- http://purl.org/voc/cpm#aggregation -->
 
-    <owl:ObjectProperty rdf:about="http://onto.nerc.ac.uk/cpm#aggregation">
-        <rdfs:domain rdf:resource="http://onto.nerc.ac.uk/cpm#StatisticalMeasure"/>
+    <owl:ObjectProperty rdf:about="http://purl.org/voc/cpm#aggregation">
+        <rdfs:domain rdf:resource="http://purl.org/voc/cpm#StatisticalMeasure"/>
         <rdfs:subPropertyOf rdf:resource="&skos;related"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://onto.nerc.ac.uk/cpm#aggregationArea -->
+    <!-- http://purl.org/voc/cpm#aggregationArea -->
 
-    <owl:ObjectProperty rdf:about="http://onto.nerc.ac.uk/cpm#aggregationArea">
+    <owl:ObjectProperty rdf:about="http://purl.org/voc/cpm#aggregationArea">
         <rdfs:label xml:lang="en">aggregationArea</rdfs:label>
         <skos:definition xml:lang="en">
             A two dimensional spatial range over which a statistic is calculated, for example
             one square metre.
         </skos:definition>
-        <rdfs:subPropertyOf rdf:resource="http://onto.nerc.ac.uk/cpm#aggregation"/>
+        <skos:definition xml:lang="en">
+            A two dimensional spatial range over which a statistic is calculated, for example one square metre.
+        </skos:definition>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/voc/cpm#aggregation"/>
         <rdfs:subPropertyOf rdf:resource="&skos;related"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://onto.nerc.ac.uk/cpm#aggregationLength -->
+    <!-- http://purl.org/voc/cpm#aggregationLength -->
 
-    <owl:ObjectProperty rdf:about="http://onto.nerc.ac.uk/cpm#aggregationLength">
+    <owl:ObjectProperty rdf:about="http://purl.org/voc/cpm#aggregationLength">
         <rdfs:label xml:lang="en">aggregationLength</rdfs:label>
         <skos:definition xml:lang="en">
             A one dimensional spatial range over which a statistic is calculated, for example
             one metre.
         </skos:definition>
-        <rdfs:subPropertyOf rdf:resource="http://onto.nerc.ac.uk/cpm#aggregation"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/voc/cpm#aggregation"/>
         <rdfs:subPropertyOf rdf:resource="&skos;related"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://onto.nerc.ac.uk/cpm#aggregationTimePeriod -->
+    <!-- http://purl.org/voc/cpm#aggregationTimePeriod -->
 
-    <owl:ObjectProperty rdf:about="http://onto.nerc.ac.uk/cpm#aggregationTimePeriod">
+    <owl:ObjectProperty rdf:about="http://purl.org/voc/cpm#aggregationTimePeriod">
         <rdfs:label xml:lang="en">aggregationTimePeriod</rdfs:label>
         <skos:definition xml:lang="en">
             A temporal range over which the statistic is calculated. e.g. A day, an hour
         </skos:definition>
-        <rdfs:subPropertyOf rdf:resource="http://onto.nerc.ac.uk/cpm#aggregation"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/voc/cpm#aggregation"/>
         <rdfs:subPropertyOf rdf:resource="&skos;related"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://onto.nerc.ac.uk/cpm#aggregationVolume -->
+    <!-- http://purl.org/voc/cpm#aggregationVolume -->
 
-    <owl:ObjectProperty rdf:about="http://onto.nerc.ac.uk/cpm#aggregationVolume">
+    <owl:ObjectProperty rdf:about="http://purl.org/voc/cpm#aggregationVolume">
         <rdfs:label xml:lang="en">aggregationVolume</rdfs:label>
         <skos:definition xml:lang="en">
             A three dimensional spatial range over which a statistic is calculated, for example
             one cubic metre.
         </skos:definition>
-        <rdfs:subPropertyOf rdf:resource="http://onto.nerc.ac.uk/cpm#aggregation"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/voc/cpm#aggregation"/>
         <rdfs:subPropertyOf rdf:resource="&skos;related"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://onto.nerc.ac.uk/cpm#basePhenomenon -->
+    <!-- http://purl.org/voc/cpm#component -->
 
-    <owl:ObjectProperty rdf:about="http://onto.nerc.ac.uk/cpm#basePhenomenon">
+    <owl:ObjectProperty rdf:about="http://purl.org/voc/cpm#component">
+        <rdfs:range rdf:resource="http://purl.org/voc/cpm#AbstractObservableProperty"/>
+        <rdfs:domain rdf:resource="http://purl.org/voc/cpm#CompositeObservableProperty"/>
         <rdfs:subPropertyOf rdf:resource="&skos;related"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://onto.nerc.ac.uk/cpm#categoryComparison -->
+    <!-- http://purl.org/voc/cpm#constraintProperty -->
 
-    <owl:ObjectProperty rdf:about="http://onto.nerc.ac.uk/cpm#categoryComparison">
-        <rdfs:label xml:lang="en">comparison</rdfs:label>
-        <skos:definition xml:lang="en">
-            A comparison operator. In the case of a category constraint it should be 
-            &quot;equalTo&quot; or &quot;notEqualTo&quot;
-        </skos:definition>
-        <rdfs:domain rdf:resource="http://onto.nerc.ac.uk/cpm#CategoryConstraint"/>
-        <rdfs:range rdf:resource="http://onto.nerc.ac.uk/cpm#ComparisonOperatorValue"/>
-        <rdfs:subPropertyOf rdf:resource="http://onto.nerc.ac.uk/cpm#comparison"/>
-        <rdfs:subPropertyOf rdf:resource="&skos;related"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://onto.nerc.ac.uk/cpm#comparison -->
-
-    <owl:ObjectProperty rdf:about="http://onto.nerc.ac.uk/cpm#comparison">
-        <rdfs:subPropertyOf rdf:resource="&skos;related"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://onto.nerc.ac.uk/cpm#component -->
-
-    <owl:ObjectProperty rdf:about="http://onto.nerc.ac.uk/cpm#component">
-        <rdfs:range rdf:resource="http://onto.nerc.ac.uk/cpm#AbstractObservableProperty"/>
-        <rdfs:domain rdf:resource="http://onto.nerc.ac.uk/cpm#CompositeObservableProperty"/>
-        <rdfs:subPropertyOf rdf:resource="&skos;related"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://onto.nerc.ac.uk/cpm#constraintBasePhenomenon -->
-
-    <owl:ObjectProperty rdf:about="http://onto.nerc.ac.uk/cpm#constraintBasePhenomenon">
+    <owl:ObjectProperty rdf:about="http://purl.org/voc/cpm#constraintProperty">
         <rdfs:label>Constrained Property</rdfs:label>
         <skos:notation rdf:datatype="http://vocab.nerc.ac.uk/datatypes/datatypes.xml#OPMClassName">
             constrainedProperty
         </skos:notation>
-        <rdfs:domain rdf:resource="http://onto.nerc.ac.uk/cpm#Constraint"/>
-        <rdfs:subPropertyOf rdf:resource="http://onto.nerc.ac.uk/cpm#basePhenomenon"/>
+        <rdfs:domain rdf:resource="http://purl.org/voc/cpm#Constraint"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/voc/cpm#property"/>
         <rdfs:subPropertyOf rdf:resource="&skos;related"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://onto.nerc.ac.uk/cpm#derivedFrom -->
+    <!-- http://purl.org/voc/cpm#derivedFrom -->
 
-    <owl:ObjectProperty rdf:about="http://onto.nerc.ac.uk/cpm#derivedFrom">
+    <owl:ObjectProperty rdf:about="http://purl.org/voc/cpm#derivedFrom">
         <rdfs:label xml:lang="en">derivedFrom</rdfs:label>
         <skos:definition xml:lang="en">
             One statistical measure may be derived from another. e.g. Monthly Maximum 
             Temperature may be derived from Daily Mean Temperatures.
         </skos:definition>
-        <rdfs:domain rdf:resource="http://onto.nerc.ac.uk/cpm#StatisticalMeasure"/>
-        <rdfs:range rdf:resource="http://onto.nerc.ac.uk/cpm#StatisticalMeasure"/>
+        <rdfs:range rdf:resource="http://purl.org/voc/cpm#StatisticalMeasure"/>
+        <rdfs:domain rdf:resource="http://purl.org/voc/cpm#StatisticalMeasure"/>
         <rdfs:subPropertyOf rdf:resource="&skos;related"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://onto.nerc.ac.uk/cpm#endComparison -->
+    <!-- http://purl.org/voc/cpm#matrix -->
 
-    <owl:ObjectProperty rdf:about="http://onto.nerc.ac.uk/cpm#endComparison">
-        <rdfs:label xml:lang="en">endComparison</rdfs:label>
-        <skos:definition xml:lang="en">
-            The comparator used for the upper range limit (e.g. lessThan)
-        </skos:definition>
-        <rdfs:range rdf:resource="http://onto.nerc.ac.uk/cpm#ComparisonOperatorValue"/>
-        <rdfs:domain rdf:resource="http://onto.nerc.ac.uk/cpm#RangeBounds"/>
+    <owl:ObjectProperty rdf:about="http://purl.org/voc/cpm#matrix">
+        <rdfs:label>Matrix</rdfs:label>
+        <rdfs:range rdf:resource="http://purl.org/voc/cpm#Matrix"/>
+        <rdfs:domain rdf:resource="http://purl.org/voc/cpm#ObservableProperty"/>
         <rdfs:subPropertyOf rdf:resource="&skos;related"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://onto.nerc.ac.uk/cpm#opBasePhenomenon -->
+    <!-- http://purl.org/voc/cpm#objectOfInterest -->
 
-    <owl:ObjectProperty rdf:about="http://onto.nerc.ac.uk/cpm#opBasePhenomenon">
-        <rdfs:label xml:lang="en">basePhenomenon</rdfs:label>
-        <rdfs:domain rdf:resource="http://onto.nerc.ac.uk/cpm#ObservableProperty"/>
-        <rdfs:subPropertyOf rdf:resource="http://onto.nerc.ac.uk/cpm#basePhenomenon"/>
+    <owl:ObjectProperty rdf:about="http://purl.org/voc/cpm#objectOfInterest">
+        <rdfs:label>Object of Interest</rdfs:label>
+        <rdfs:range rdf:resource="http://purl.org/voc/cpm#ObjectOfInterest"/>
+        <rdfs:domain rdf:resource="http://purl.org/voc/cpm#ObservableProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&skos;related"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://onto.nerc.ac.uk/cpm#opUnitOfMeasure -->
+    <!-- http://purl.org/voc/cpm#opProperty -->
 
-    <owl:ObjectProperty rdf:about="http://onto.nerc.ac.uk/cpm#opUnitOfMeasure">
+    <owl:ObjectProperty rdf:about="http://purl.org/voc/cpm#opProperty">
+        <rdfs:label xml:lang="en">property</rdfs:label>
+        <rdfs:domain rdf:resource="http://purl.org/voc/cpm#ObservableProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/voc/cpm#property"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/voc/cpm#opUnitOfMeasure -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/voc/cpm#opUnitOfMeasure">
         <rdfs:label xml:lang="en">uom</rdfs:label>
-        <rdfs:range rdf:resource="http://data.qudt.org/qudt/owl/1.0.0/qudt.owl#Unit"/>
-        <rdfs:domain rdf:resource="http://onto.nerc.ac.uk/cpm#ObservableProperty"/>
-        <rdfs:subPropertyOf rdf:resource="http://onto.nerc.ac.uk/cpm#UnitOfMeasure"/>
+        <rdfs:domain rdf:resource="http://purl.org/voc/cpm#ObservableProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/voc/cpm#UnitOfMeasure"/>
         <rdfs:subPropertyOf rdf:resource="&skos;related"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://onto.nerc.ac.uk/cpm#otherAggregation -->
+    <!-- http://purl.org/voc/cpm#otherAggregation -->
 
-    <owl:ObjectProperty rdf:about="http://onto.nerc.ac.uk/cpm#otherAggregation">
+    <owl:ObjectProperty rdf:about="http://purl.org/voc/cpm#otherAggregation">
         <rdfs:label xml:lang="en">otherAggregation</rdfs:label>
         <skos:definition xml:lang="en">
             Any other type of aggregation
         </skos:definition>
-        <rdfs:subPropertyOf rdf:resource="http://onto.nerc.ac.uk/cpm#aggregation"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/voc/cpm#aggregation"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://onto.nerc.ac.uk/cpm#rangeUnitOfMeasure -->
+    <!-- http://purl.org/voc/cpm#property -->
 
-    <owl:ObjectProperty rdf:about="http://onto.nerc.ac.uk/cpm#rangeUnitOfMeasure">
-        <rdfs:label xml:lang="en">uom</rdfs:label>
-        <skos:definition xml:lang="en">Units of measure used in the constraint</skos:definition>
-        <rdfs:range rdf:resource="http://data.qudt.org/qudt/owl/1.0.0/qudt.owl#Unit"/>
-        <rdfs:domain rdf:resource="http://onto.nerc.ac.uk/cpm#RangeConstraint"/>
-        <rdfs:subPropertyOf rdf:resource="http://onto.nerc.ac.uk/cpm#UnitOfMeasure"/>
+    <owl:ObjectProperty rdf:about="http://purl.org/voc/cpm#property">
         <rdfs:subPropertyOf rdf:resource="&skos;related"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://onto.nerc.ac.uk/cpm#rangeValue -->
+    <!-- http://purl.org/voc/cpm#restriction -->
 
-    <owl:ObjectProperty rdf:about="http://onto.nerc.ac.uk/cpm#rangeValue">
-        <rdfs:label xml:lang="en">value</rdfs:label>
-        <skos:definition xml:lang="en">
-            The numerical value range of the proprty that is constrained
-        </skos:definition>
-        <rdfs:range rdf:resource="http://onto.nerc.ac.uk/cpm#RangeBounds"/>
-        <rdfs:domain rdf:resource="http://onto.nerc.ac.uk/cpm#RangeConstraint"/>
-        <rdfs:subPropertyOf rdf:resource="&skos;related"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://onto.nerc.ac.uk/cpm#restriction -->
-
-    <owl:ObjectProperty rdf:about="http://onto.nerc.ac.uk/cpm#restriction">
+    <owl:ObjectProperty rdf:about="http://purl.org/voc/cpm#restriction">
         <rdfs:label xml:lang="en">restriction</rdfs:label>
-        <rdfs:range rdf:resource="http://onto.nerc.ac.uk/cpm#Constraint"/>
-        <rdfs:domain rdf:resource="http://onto.nerc.ac.uk/cpm#ObservableProperty"/>
+        <rdfs:range rdf:resource="http://purl.org/voc/cpm#Constraint"/>
+        <rdfs:domain rdf:resource="http://purl.org/voc/cpm#ObservableProperty"/>
         <rdfs:subPropertyOf rdf:resource="&skos;related"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://onto.nerc.ac.uk/cpm#scalarComparison -->
+    <!-- http://purl.org/voc/cpm#statisticalMeasure -->
 
-    <owl:ObjectProperty rdf:about="http://onto.nerc.ac.uk/cpm#scalarComparison">
-        <rdfs:label xml:lang="en">comparison</rdfs:label>
-        <skos:definition xml:lang="en">
-            The comparison to be used in the constraint, e.g. greaterThan
-        </skos:definition>
-        <rdfs:range rdf:resource="http://onto.nerc.ac.uk/cpm#ComparisonOperatorValue"/>
-        <rdfs:domain rdf:resource="http://onto.nerc.ac.uk/cpm#ScalarConstraint"/>
-        <rdfs:subPropertyOf rdf:resource="http://onto.nerc.ac.uk/cpm#comparison"/>
-        <rdfs:subPropertyOf rdf:resource="&skos;related"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://onto.nerc.ac.uk/cpm#scalarUnitOfMeasure -->
-
-    <owl:ObjectProperty rdf:about="http://onto.nerc.ac.uk/cpm#scalarUnitOfMeasure">
-        <rdfs:label xml:lang="en">uom</rdfs:label>
-        <skos:definition xml:lang="en">
-            Units of measure used in the constraint
-        </skos:definition>
-        <rdfs:range rdf:resource="http://data.qudt.org/qudt/owl/1.0.0/qudt.owl#Unit"/>
-        <rdfs:domain rdf:resource="http://onto.nerc.ac.uk/cpm#ScalarConstraint"/>
-        <rdfs:subPropertyOf rdf:resource="http://onto.nerc.ac.uk/cpm#UnitOfMeasure"/>
-        <rdfs:subPropertyOf rdf:resource="&skos;related"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://onto.nerc.ac.uk/cpm#startComparison -->
-
-    <owl:ObjectProperty rdf:about="http://onto.nerc.ac.uk/cpm#startComparison">
-        <rdfs:label xml:lang="en">startComparison</rdfs:label>
-        <skos:definition xml:lang="en">
-            The comparator used for the lower range limit (e.g. greaterThanOrEqualTo)
-        </skos:definition>
-        <rdfs:range rdf:resource="http://onto.nerc.ac.uk/cpm#ComparisonOperatorValue"/>
-        <rdfs:domain rdf:resource="http://onto.nerc.ac.uk/cpm#RangeBounds"/>
-        <rdfs:subPropertyOf rdf:resource="&skos;related"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://onto.nerc.ac.uk/cpm#statisticalMeasure -->
-
-    <owl:ObjectProperty rdf:about="http://onto.nerc.ac.uk/cpm#statisticalMeasure">
+    <owl:ObjectProperty rdf:about="http://purl.org/voc/cpm#statisticalMeasure">
         <rdfs:label xml:lang="en">statisticalMeasure</rdfs:label>
-        <rdfs:domain rdf:resource="http://onto.nerc.ac.uk/cpm#ObservableProperty"/>
-        <rdfs:subPropertyOf rdf:resource="http://onto.nerc.ac.uk/cpm#StatisticalMeasure"/>
+        <rdfs:domain rdf:resource="http://purl.org/voc/cpm#ObservableProperty"/>
+        <rdfs:range rdf:resource="http://purl.org/voc/cpm#StatisticalMeasure"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/voc/cpm#StatisticalMeasure"/>
         <rdfs:subPropertyOf rdf:resource="&skos;related"/>
 		<rdfs:subPropertyOf rdf:resource="&op;constraint"/>
     </owl:ObjectProperty>
@@ -418,29 +317,32 @@
     
 
 
-    <!-- http://onto.nerc.ac.uk/cpm#aggregation -->
+    <!-- http://purl.org/voc/cpm#aggregation -->
 
-    <owl:DatatypeProperty rdf:about="http://onto.nerc.ac.uk/cpm#aggregation">
+    <owl:DatatypeProperty rdf:about="http://purl.org/voc/cpm#aggregation">
         <rdfs:range rdf:resource="&xsd;anyURI"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://onto.nerc.ac.uk/cpm#aggregationArea -->
+    <!-- http://purl.org/voc/cpm#aggregationArea -->
 
-    <owl:DatatypeProperty rdf:about="http://onto.nerc.ac.uk/cpm#aggregationArea">
+    <owl:DatatypeProperty rdf:about="http://purl.org/voc/cpm#aggregationArea">
         <rdfs:label xml:lang="en">aggregationArea</rdfs:label>
         <skos:definition xml:lang="en">
             A two dimensional spatial range over which a statistic is calculated, for example
             one square metre.
         </skos:definition>
+        <skos:definition xml:lang="en">
+            A two dimensional spatial range over which a statistic is calculated, for example one square metre.
+        </skos:definition>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://onto.nerc.ac.uk/cpm#aggregationLength -->
+    <!-- http://purl.org/voc/cpm#aggregationLength -->
 
-    <owl:DatatypeProperty rdf:about="http://onto.nerc.ac.uk/cpm#aggregationLength">
+    <owl:DatatypeProperty rdf:about="http://purl.org/voc/cpm#aggregationLength">
         <rdfs:label xml:lang="en">aggregationLength</rdfs:label>
         <skos:definition xml:lang="en">
             A one dimensional spatial range over which a statistic is calculated, for example
@@ -450,9 +352,9 @@
     
 
 
-    <!-- http://onto.nerc.ac.uk/cpm#aggregationTimePeriod -->
+    <!-- http://purl.org/voc/cpm#aggregationTimePeriod -->
 
-    <owl:DatatypeProperty rdf:about="http://onto.nerc.ac.uk/cpm#aggregationTimePeriod">
+    <owl:DatatypeProperty rdf:about="http://purl.org/voc/cpm#aggregationTimePeriod">
         <rdfs:label xml:lang="en">aggregationTimePeriod</rdfs:label>
         <skos:definition xml:lang="en">
             A temporal range over which the statistic is calculated. e.g. A day, an hour
@@ -461,9 +363,9 @@
     
 
 
-    <!-- http://onto.nerc.ac.uk/cpm#aggregationVolume -->
+    <!-- http://purl.org/voc/cpm#aggregationVolume -->
 
-    <owl:DatatypeProperty rdf:about="http://onto.nerc.ac.uk/cpm#aggregationVolume">
+    <owl:DatatypeProperty rdf:about="http://purl.org/voc/cpm#aggregationVolume">
         <rdfs:label xml:lang="en">aggregationVolume</rdfs:label>
         <skos:definition xml:lang="en">
             A three dimensional spatial range over which a statistic is calculated, for example
@@ -473,42 +375,37 @@
     
 
 
-    <!-- http://onto.nerc.ac.uk/cpm#aopLabel -->
+    <!-- http://purl.org/voc/cpm#casNumber -->
 
-    <owl:DatatypeProperty rdf:about="http://onto.nerc.ac.uk/cpm#aopLabel">
-        <rdfs:label xml:lang="en">label</rdfs:label>
-        <rdfs:domain rdf:resource="http://onto.nerc.ac.uk/cpm#AbstractObservableProperty"/>
-        <rdfs:subPropertyOf rdf:resource="http://onto.nerc.ac.uk/cpm#label"/>
-        <rdfs:range rdf:resource="&xsd;string"/>
-        <rdfs:subPropertyOf rdf:resource="&skos;prefLabel"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://onto.nerc.ac.uk/cpm#basePhenomenon -->
-
-    <owl:DatatypeProperty rdf:about="http://onto.nerc.ac.uk/cpm#basePhenomenon"/>
-    
-
-
-    <!-- http://onto.nerc.ac.uk/cpm#categoryValue -->
-
-    <owl:DatatypeProperty rdf:about="http://onto.nerc.ac.uk/cpm#categoryValue">
-        <rdfs:label xml:lang="en">value</rdfs:label>
+    <owl:DatatypeProperty rdf:about="http://purl.org/voc/cpm#casNumber">
+        <rdfs:label xml:lang="en">CAS Number</rdfs:label>
         <skos:definition xml:lang="en">
-            The value of the property that is constrained - e.g. &quot;blue&quot; (if the 
-            constrained property is colour&quot;
+            A label for a substance allowing it to be identified within the Chemical Abstracts Service (CAS)
         </skos:definition>
-        <rdfs:domain rdf:resource="http://onto.nerc.ac.uk/cpm#CategoryConstraint"/>
-        <rdfs:subPropertyOf rdf:resource="http://onto.nerc.ac.uk/cpm#value"/>
+        <rdfs:domain rdf:resource="http://purl.org/voc/cpm#Substance"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:subPropertyOf rdf:resource="&skos;altLabel"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/voc/cpm#constraintLabel -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/voc/cpm#constraintLabel">
+        <rdfs:label xml:lang="en">description</rdfs:label>
+        <skos:definition xml:lang="en">
+            A human readable title for the constraint as a whole
+        </skos:definition>
+        <rdfs:domain rdf:resource="http://purl.org/voc/cpm#Constraint"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/voc/cpm#label"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://onto.nerc.ac.uk/cpm#constraintBasePhenomenon -->
+    <!-- http://purl.org/voc/cpm#constraintProperty -->
 
-    <owl:DatatypeProperty rdf:about="http://onto.nerc.ac.uk/cpm#constraintBasePhenomenon">
+    <owl:DatatypeProperty rdf:about="http://purl.org/voc/cpm#constraintProperty">
         <rdfs:label>Constrained Property</rdfs:label>
         <skos:notation rdf:datatype="http://vocab.nerc.ac.uk/datatypes/datatypes.xml#OPMClassName">
             constrainedProperty
@@ -518,32 +415,18 @@
     
 
 
-    <!-- http://onto.nerc.ac.uk/cpm#constraintLabel -->
+    <!-- http://purl.org/voc/cpm#count -->
 
-    <owl:DatatypeProperty rdf:about="http://onto.nerc.ac.uk/cpm#constraintLabel">
-        <rdfs:label xml:lang="en">description</rdfs:label>
-        <skos:definition xml:lang="en">
-            A human readable title for the constraint as a whole
-        </skos:definition>
-        <rdfs:domain rdf:resource="http://onto.nerc.ac.uk/cpm#Constraint"/>
-        <rdfs:subPropertyOf rdf:resource="http://onto.nerc.ac.uk/cpm#label"/>
-        <rdfs:range rdf:resource="&xsd;string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://onto.nerc.ac.uk/cpm#count -->
-
-    <owl:DatatypeProperty rdf:about="http://onto.nerc.ac.uk/cpm#count">
-        <rdfs:domain rdf:resource="http://onto.nerc.ac.uk/cpm#CompositeObservableProperty"/>
+    <owl:DatatypeProperty rdf:about="http://purl.org/voc/cpm#count">
+        <rdfs:domain rdf:resource="http://purl.org/voc/cpm#CompositeObservableProperty"/>
         <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://onto.nerc.ac.uk/cpm#derivedFrom -->
+    <!-- http://purl.org/voc/cpm#derivedFrom -->
 
-    <owl:DatatypeProperty rdf:about="http://onto.nerc.ac.uk/cpm#derivedFrom">
+    <owl:DatatypeProperty rdf:about="http://purl.org/voc/cpm#derivedFrom">
         <rdfs:label xml:lang="en">derivedFrom</rdfs:label>
         <skos:definition xml:lang="en">
             One statistical measure may be derived from another. e.g. Monthly Maximum 
@@ -553,37 +436,26 @@
     
 
 
-    <!-- http://onto.nerc.ac.uk/cpm#description -->
+    <!-- http://purl.org/voc/cpm#label -->
 
-    <owl:DatatypeProperty rdf:about="http://onto.nerc.ac.uk/cpm#description">
-        <rdfs:label xml:lang="en">description</rdfs:label>
-        <skos:definition xml:lang="en">A description of the constraint</skos:definition>
-        <rdfs:domain rdf:resource="http://onto.nerc.ac.uk/cpm#OtherConstraint"/>
-        <rdfs:range rdf:resource="&xsd;string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://onto.nerc.ac.uk/cpm#label -->
-
-    <owl:DatatypeProperty rdf:about="http://onto.nerc.ac.uk/cpm#label">
+    <owl:DatatypeProperty rdf:about="http://purl.org/voc/cpm#label">
         <rdfs:subPropertyOf rdf:resource="&skos;prefLabel"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://onto.nerc.ac.uk/cpm#opBasePhenomenon -->
+    <!-- http://purl.org/voc/cpm#opProperty -->
 
-    <owl:DatatypeProperty rdf:about="http://onto.nerc.ac.uk/cpm#opBasePhenomenon">
-        <rdfs:label xml:lang="en">basePhenomenon</rdfs:label>
+    <owl:DatatypeProperty rdf:about="http://purl.org/voc/cpm#opProperty">
+        <rdfs:label xml:lang="en">property</rdfs:label>
         <rdfs:range rdf:resource="&xsd;anyURI"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://onto.nerc.ac.uk/cpm#otherAggregation -->
+    <!-- http://purl.org/voc/cpm#otherAggregation -->
 
-    <owl:DatatypeProperty rdf:about="http://onto.nerc.ac.uk/cpm#otherAggregation">
+    <owl:DatatypeProperty rdf:about="http://purl.org/voc/cpm#otherAggregation">
         <rdfs:label xml:lang="en">otherAggregation</rdfs:label>
         <skos:definition xml:lang="en">
             Any other type of aggregation
@@ -592,73 +464,45 @@
     
 
 
-    <!-- http://onto.nerc.ac.uk/cpm#rangeEnd -->
+    <!-- http://purl.org/voc/cpm#property -->
 
-    <owl:DatatypeProperty rdf:about="http://onto.nerc.ac.uk/cpm#rangeEnd">
-        <rdfs:label xml:lang="en">rangeEnd</rdfs:label>
-        <skos:definition xml:lang="en">
-            The upper limit of the range
-        </skos:definition>
-        <rdfs:domain rdf:resource="http://onto.nerc.ac.uk/cpm#RangeBounds"/>
-        <rdfs:range rdf:resource="&xsd;double"/>
-    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="http://purl.org/voc/cpm#property"/>
     
 
 
-    <!-- http://onto.nerc.ac.uk/cpm#rangeStart -->
+    <!-- http://purl.org/voc/cpm#statisticalMeasure -->
 
-    <owl:DatatypeProperty rdf:about="http://onto.nerc.ac.uk/cpm#rangeStart">
-        <rdfs:label xml:lang="en">rangeStart</rdfs:label>
-        <skos:definition xml:lang="en">
-            The lower limit of the range
-        </skos:definition>
-        <rdfs:domain rdf:resource="http://onto.nerc.ac.uk/cpm#RangeBounds"/>
-        <rdfs:range rdf:resource="&xsd;double"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://onto.nerc.ac.uk/cpm#scalarValue -->
-
-    <owl:DatatypeProperty rdf:about="http://onto.nerc.ac.uk/cpm#scalarValue">
-        <rdfs:label xml:lang="en">value</rdfs:label>
-        <skos:definition xml:lang="en">
-            The numerical value of the property that is constrained
-        </skos:definition>
-        <rdfs:domain rdf:resource="http://onto.nerc.ac.uk/cpm#ScalarConstraint"/>
-        <rdfs:subPropertyOf rdf:resource="http://onto.nerc.ac.uk/cpm#value"/>
-        <rdfs:range rdf:resource="&xsd;double"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://onto.nerc.ac.uk/cpm#statisticalMeasure -->
-
-    <owl:DatatypeProperty rdf:about="http://onto.nerc.ac.uk/cpm#statisticalMeasure">
+    <owl:DatatypeProperty rdf:about="http://purl.org/voc/cpm#statisticalMeasure">
         <rdfs:label xml:lang="en">statisticalMeasure</rdfs:label>
         <rdfs:range rdf:resource="&xsd;anyURI"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://onto.nerc.ac.uk/cpm#statmLabel -->
+    <!-- http://purl.org/voc/cpm#statmLabel -->
 
-    <owl:DatatypeProperty rdf:about="http://onto.nerc.ac.uk/cpm#statmLabel">
+    <owl:DatatypeProperty rdf:about="http://purl.org/voc/cpm#statmLabel">
         <rdfs:label xml:lang="en">label</rdfs:label>
         <skos:definition xml:lang="en">
             A human readable title for the statistical measure
         </skos:definition>
-        <rdfs:domain rdf:resource="http://onto.nerc.ac.uk/cpm#StatisticalMeasure"/>
-        <rdfs:subPropertyOf rdf:resource="http://onto.nerc.ac.uk/cpm#label"/>
+        <rdfs:domain rdf:resource="http://purl.org/voc/cpm#StatisticalMeasure"/>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/voc/cpm#label"/>
         <rdfs:range rdf:resource="&xsd;string"/>
         <rdfs:subPropertyOf rdf:resource="&skos;prefLabel"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://onto.nerc.ac.uk/cpm#value -->
+    <!-- http://purl.org/voc/cpm#value -->
 
-    <owl:DatatypeProperty rdf:about="http://onto.nerc.ac.uk/cpm#value"/>
+    <owl:DatatypeProperty rdf:about="http://purl.org/voc/cpm#value"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#altLabel -->
+
+    <owl:DatatypeProperty rdf:about="&skos;altLabel"/>
     
 
 
@@ -679,479 +523,298 @@
     
 
 
-    <!-- http://data.qudt.org/qudt/owl/1.0.0/qudt.owl#Unit -->
+    <!-- http://purl.org/voc/cpm#AbstractObservableProperty -->
 
-    <owl:Class rdf:about="http://data.qudt.org/qudt/owl/1.0.0/qudt.owl#Unit">
-        <rdfs:label xml:lang="en">QUDT Unit</rdfs:label>
-        <rdfs:comment xml:lang="en">The CPM ontology is using the QUDT Unit vocabulary here rather than a SKOS Concept to maintain compatibility with the CSIRO OP ontologgy.</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://def.seegrid.csiro.au/static/isotc211/iso19156/2011/observation.rdf#Observation -->
-
-    <owl:Class rdf:about="http://def.seegrid.csiro.au/static/isotc211/iso19156/2011/observation.rdf#Observation"/>
-    
-
-
-    <!-- http://environment.data.gov.au/def/op#PropertyKind -->
-
-    <owl:Class rdf:about="&op;PropertyKind">
-        <owl:equivalentClass rdf:resource="http://onto.nerc.ac.uk/cpm#ObservableProperty"/>
-    </owl:Class>
-    
-
-
-    <!-- http://onto.nerc.ac.uk/cpm#AbstractObservableProperty -->
-
-    <owl:Class rdf:about="http://onto.nerc.ac.uk/cpm#AbstractObservableProperty">
+    <owl:Class rdf:about="http://purl.org/voc/cpm#AbstractObservableProperty">
         <rdfs:label xml:lang="en">Abstract Observable Property</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://def.seegrid.csiro.au/static/isotc211/iso19156/2011/observation.rdf#Observation"/>
         <rdfs:subClassOf rdf:resource="&skos;Concept"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://onto.nerc.ac.uk/cpm#aopLabel"/>
-                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <owl:disjointWith rdf:resource="http://onto.nerc.ac.uk/cpm#ComparisonOperatorValue"/>
-        <owl:disjointWith rdf:resource="http://onto.nerc.ac.uk/cpm#Constraint"/>
-        <owl:disjointWith rdf:resource="http://onto.nerc.ac.uk/cpm#RangeBounds"/>
-        <owl:disjointWith rdf:resource="http://onto.nerc.ac.uk/cpm#StatisticalMeasure"/>
         <skos:notation rdf:datatype="http://vocab.nerc.ac.uk/datatypes/datatypes.xml#OPMClassName">
             AbstractObservableProperty
         </skos:notation>
-        <skos:definition xml:lang="en">
-            The AbstractObservableProperty class is the root of the ObservableProperty model. It is implemented 
-            by two specialisations: ObservableProperty and CompositeObservableProperty.
+        <skos:definition xml:lang="en">The AbstractObservableProperty class is the root of the ObservableProperty model. It is implemented  by two specialisations: ObservableProperty and CompositeObservableProperty.
         </skos:definition>
     </owl:Class>
     
 
 
-    <!-- http://onto.nerc.ac.uk/cpm#CategoryConstraint -->
+    <!-- http://purl.org/voc/cpm#CompositeObservableProperty -->
 
-    <owl:Class rdf:about="http://onto.nerc.ac.uk/cpm#CategoryConstraint">
-        <rdfs:label xml:lang="en">Category Constraint</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://onto.nerc.ac.uk/cpm#Constraint"/>
-        <rdfs:subClassOf rdf:resource="&skos;Concept"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://onto.nerc.ac.uk/cpm#categoryComparison"/>
-                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://onto.nerc.ac.uk/cpm#categoryValue"/>
-                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <skos:notation rdf:datatype="http://vocab.nerc.ac.uk/datatypes/datatypes.xml#OPMClassName">
-            CategoryConstraint
-        </skos:notation>
-        <skos:definition xml:lang="en">
-            A constraint based on some qualifying category. e..g colour = &apos;Red&apos;. 
-            The value (&apos;Red&apos;) of the constraint (&apos;colour&apos;) can be any string, although it may be 
-            desirable to constrain this in particular application domains.
-        </skos:definition>
-    </owl:Class>
-    
-
-
-    <!-- http://onto.nerc.ac.uk/cpm#ComparisonOperatorValue -->
-
-    <owl:Class rdf:about="http://onto.nerc.ac.uk/cpm#ComparisonOperatorValue">
-        <rdfs:label xml:lang="en">Comparison Operator Value</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&skos;Concept"/>
-        <owl:disjointWith rdf:resource="http://onto.nerc.ac.uk/cpm#Constraint"/>
-        <owl:disjointWith rdf:resource="http://onto.nerc.ac.uk/cpm#RangeBounds"/>
-        <owl:disjointWith rdf:resource="http://onto.nerc.ac.uk/cpm#StatisticalMeasure"/>
-        <skos:notation rdf:datatype="http://vocab.nerc.ac.uk/datatypes/datatypes.xml#OPMClassName">
-            ComparisonOperatorValue
-        </skos:notation>
-        <skos:definition xml:lang="en">
-            An enumeration of comparison operators: e.g. Greater Than
-        </skos:definition>
-    </owl:Class>
-    
-
-
-    <!-- http://onto.nerc.ac.uk/cpm#CompositeObservableProperty -->
-
-    <owl:Class rdf:about="http://onto.nerc.ac.uk/cpm#CompositeObservableProperty">
+    <owl:Class rdf:about="http://purl.org/voc/cpm#CompositeObservableProperty">
         <rdfs:label xml:lang="en">Composite Observable Property</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://onto.nerc.ac.uk/cpm#AbstractObservableProperty"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/voc/cpm#AbstractObservableProperty"/>
         <rdfs:subClassOf rdf:resource="&skos;Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://onto.nerc.ac.uk/cpm#count"/>
-                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://onto.nerc.ac.uk/cpm#component"/>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#component"/>
                 <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#count"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://purl.org/voc/cpm#ObservableProperty"/>
         <skos:notation rdf:datatype="http://vocab.nerc.ac.uk/datatypes/datatypes.xml#OPMClassName">
             CompositeObservableProperty
         </skos:notation>
-        <skos:definition xml:lang="en">
-            Usually, when performing multiple observations on one featureOfInterest, one provides a separate 
-            ObservableProperty element for each Phenomenon being observed. However, in certain cases where 
-            either a) there is a strong link between the Phenomena or b) the multiple phenomena are clearly 
-            observed as part of the same Observation, these Phenomena may be provided together in one 
-            Observation. In this case a CompositeObservableProperty can be defined that groups together 
-            multiple Phenomena (ObservableProperty) into one CompositeObservableProperty element. 
+        <skos:definition xml:lang="en"> Usually, when performing multiple observations on one featureOfInterest, one provides a separate ObservableProperty element for each Phenomenon being observed. However, in certain cases where either a) there is a strong link between the Phenomena or b) the multiple phenomena are clearly observed as part of the same Observation, these Phenomena may be provided together in one Observation. In this case a CompositeObservableProperty can be defined that groups together multiple Phenomena (ObservableProperty) into one CompositeObservableProperty element. 
             
-            An example of a strongly linked pair of Phenomena is wind speed and wind direction
+An example of a strongly linked pair of Phenomena is wind speed and wind direction
         </skos:definition>
     </owl:Class>
     
 
 
-    <!-- http://onto.nerc.ac.uk/cpm#Constraint -->
+    <!-- http://purl.org/voc/cpm#Constraint -->
 
-    <owl:Class rdf:about="http://onto.nerc.ac.uk/cpm#Constraint">
+    <owl:Class rdf:about="http://purl.org/voc/cpm#Constraint">
         <rdfs:label xml:lang="en">Constraint</rdfs:label>
         <rdfs:subClassOf rdf:resource="&skos;Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://onto.nerc.ac.uk/cpm#constraintLabel"/>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#constraintProperty"/>
                 <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://onto.nerc.ac.uk/cpm#constraintBasePhenomenon"/>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#constraintProperty"/>
                 <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://onto.nerc.ac.uk/cpm#constraintBasePhenomenon"/>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#constraintLabel"/>
                 <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://onto.nerc.ac.uk/cpm#label"/>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#label"/>
                 <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <owl:disjointWith rdf:resource="http://onto.nerc.ac.uk/cpm#RangeBounds"/>
-        <owl:disjointWith rdf:resource="http://onto.nerc.ac.uk/cpm#StatisticalMeasure"/>
         <skos:notation rdf:datatype="http://vocab.nerc.ac.uk/datatypes/datatypes.xml#OPMClassName">
             Constraint
         </skos:notation>
-        <skos:definition xml:lang="en">
-            In order to provide other constraints on ObservableProperties, the type Constraint has been created 
-            and can be associated with an ObservableProperty. Constraint types have been provided for scalar, 
-            range and category constraints, as well as a generic OtherConstraint data type. The following list 
-            provides examples for the constraint types defined: 
-              - Scalar Constraint: A numerical scalar constraint on some property e.g. length &gt;= 1m 
-              - Range Constraint: A numerical range constraint on some property e.g. wavelength &gt;=300nm 
-                and wavelength &lt;=600nm. To be used when data is observed in particular bands or groupings 
-                based on a numerical quantity. 
-              - Category Constraint: A constraint based on some qualifying category. e.g. colour = &apos;Red&apos;. The 
-                value (&apos;Red&apos;) of the constraint (&apos;colour&apos;) can be any string, although it may be desirable to 
-                constrain this in particular application domains. 
-              - Other Constraint: Any other constraint type not easily expressed using the other Constraint 
-                types.This type may be specialised or the simple description attribute may be used to provide 
-                a free text description of the constraint. 
+        <skos:definition xml:lang="en">In order to provide other constraints on ObservableProperties, the type Constraint has been created and can be associated with an ObservableProperty. Constraints may be specialised or the simple description attribute may be used to provide a free text description of the constraint. 
         </skos:definition>
     </owl:Class>
     
 
 
-    <!-- http://onto.nerc.ac.uk/cpm#ObservableProperty -->
+    <!-- http://purl.org/voc/cpm#Matrix -->
 
-    <owl:Class rdf:about="http://onto.nerc.ac.uk/cpm#ObservableProperty">
+    <owl:Class rdf:about="http://purl.org/voc/cpm#Matrix">
+        <rdfs:label xml:lang="en">Matrix</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&skos;Concept"/>
+        <skos:definition xml:lang="en">The matrix is a special case of a feature-of-interest that provides the context (container feeaure or medium) for an observable property.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/voc/cpm#ObjectOfInterest -->
+
+    <owl:Class rdf:about="http://purl.org/voc/cpm#ObjectOfInterest">
+        <rdfs:label xml:lang="en">Object of Interest</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&skos;Concept"/>
+        <skos:definition xml:lang="en">The substance, taxon or other physical/chemical phenomenon of the Feature Of Interest that is being observed. E.g.  Waves, Rainfall, Calluna Vulgaris, Aluminium.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/voc/cpm#ObservableProperty -->
+
+    <owl:Class rdf:about="http://purl.org/voc/cpm#ObservableProperty">
         <rdfs:label xml:lang="en">Observable Property</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://onto.nerc.ac.uk/cpm#AbstractObservableProperty"/>
+        <rdfs:subClassOf rdf:resource="http://purl.org/voc/cpm#AbstractObservableProperty"/>
         <rdfs:subClassOf rdf:resource="&skos;Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://onto.nerc.ac.uk/cpm#opUnitOfMeasure"/>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#statisticalMeasure"/>
                 <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://onto.nerc.ac.uk/cpm#restriction"/>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#objectOfInterest"/>
+                <owl:onClass rdf:resource="http://purl.org/voc/cpm#ObjectOfInterest"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#restriction"/>
                 <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://onto.nerc.ac.uk/cpm#opBasePhenomenon"/>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#opProperty"/>
                 <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://onto.nerc.ac.uk/cpm#opUnitOfMeasure"/>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#opUnitOfMeasure"/>
                 <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://onto.nerc.ac.uk/cpm#statisticalMeasure"/>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#opUnitOfMeasure"/>
                 <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <skos:notation rdf:datatype="http://vocab.nerc.ac.uk/datatypes/datatypes.xml#OPMClassName">
             ObservableProperty
         </skos:notation>
-        <skos:definition xml:lang="en">
-            At its simplest an ObservableProperty simply carries a reference to a phenomenon definition in a 
-            codelist with optional units of measure. However an ObservableProperty definition may be augmented 
-            using Constraints and/or Statistical Measures to create a more full definition of the observed property. 
+        <skos:definition xml:lang="en">At its simplest an ObservableProperty simply carries a reference to a phenomenon definition in a codelist with optional units of measure. However an ObservableProperty definition may be augmented using Constraints and/or Statistical Measures to create a more full definition of the observed property. 
         </skos:definition>
     </owl:Class>
     
 
 
-    <!-- http://onto.nerc.ac.uk/cpm#OtherConstraint -->
+    <!-- http://purl.org/voc/cpm#Phenomenon -->
 
-    <owl:Class rdf:about="http://onto.nerc.ac.uk/cpm#OtherConstraint">
-        <rdfs:label xml:lang="en">Other Constraint</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://onto.nerc.ac.uk/cpm#Constraint"/>
+    <owl:Class rdf:about="http://purl.org/voc/cpm#Phenomenon">
+        <rdfs:label xml:lang="en">Phenomenon</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/voc/cpm#ObjectOfInterest"/>
         <rdfs:subClassOf rdf:resource="&skos;Concept"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://onto.nerc.ac.uk/cpm#description"/>
-                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <skos:notation rdf:datatype="http://vocab.nerc.ac.uk/datatypes/datatypes.xml#OPMClassName">
-            OtherConstraint
-        </skos:notation>
-        <skos:definition xml:lang="en">
-            A constraint, not modelled in a structured way, but may be described using the 
-            freetext &apos;description&apos; attribute.
-        </skos:definition>
+        <owl:disjointWith rdf:resource="http://purl.org/voc/cpm#Substance"/>
+        <owl:disjointWith rdf:resource="http://purl.org/voc/cpm#Taxon"/>
+        <skos:definition xml:lang="en">A specialisation of ObjectOfInterest for use where the Object of Interest is a physical phenomen, such as &quot;throughfall&quot; or &quot;waves&quot;</skos:definition>
     </owl:Class>
     
 
 
-    <!-- http://onto.nerc.ac.uk/cpm#RangeBounds -->
+    <!-- http://purl.org/voc/cpm#StatisticalMeasure -->
 
-    <owl:Class rdf:about="http://onto.nerc.ac.uk/cpm#RangeBounds">
-        <rdfs:label xml:lang="en">Range Bounds</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&skos;Concept"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://onto.nerc.ac.uk/cpm#endComparison"/>
-                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://onto.nerc.ac.uk/cpm#rangeEnd"/>
-                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://onto.nerc.ac.uk/cpm#startComparison"/>
-                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://onto.nerc.ac.uk/cpm#rangeStart"/>
-                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <owl:disjointWith rdf:resource="http://onto.nerc.ac.uk/cpm#StatisticalMeasure"/>
-        <skos:notation rdf:datatype="http://vocab.nerc.ac.uk/datatypes/datatypes.xml#OPMClassName">
-            RangeBounds
-        </skos:notation>
-        <skos:definition xml:lang="en">
-            The start and end bounding values of a numerical range (e.g. start
-            &gt;=50, end &lt;=99).
-        </skos:definition>
-    </owl:Class>
-    
-
-
-    <!-- http://onto.nerc.ac.uk/cpm#RangeConstraint -->
-
-    <owl:Class rdf:about="http://onto.nerc.ac.uk/cpm#RangeConstraint">
-        <rdfs:label xml:lang="en">Range Constraint</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://onto.nerc.ac.uk/cpm#Constraint"/>
-        <rdfs:subClassOf rdf:resource="&skos;Concept"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://onto.nerc.ac.uk/cpm#rangeValue"/>
-                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://onto.nerc.ac.uk/cpm#rangeUnitOfMeasure"/>
-                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://onto.nerc.ac.uk/cpm#rangeUnitOfMeasure"/>
-                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <skos:notation rdf:datatype="http://vocab.nerc.ac.uk/datatypes/datatypes.xml#OPMClassName">
-            RangeConstraint
-        </skos:notation>
-        <skos:definition xml:lang="en">
-            A numerical range constraint on some property, e.g. wavelength &gt;=300nm and
-            &lt;=600nm. To be used when data are observed in particular bands or groupings
-            based on a numerical quantity.
-        </skos:definition>
-    </owl:Class>
-    
-
-
-    <!-- http://onto.nerc.ac.uk/cpm#ScalarConstraint -->
-
-    <owl:Class rdf:about="http://onto.nerc.ac.uk/cpm#ScalarConstraint">
-        <rdfs:label xml:lang="en">Scalar Constraint</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://onto.nerc.ac.uk/cpm#Constraint"/>
-        <rdfs:subClassOf rdf:resource="&skos;Concept"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://onto.nerc.ac.uk/cpm#scalarUnitOfMeasure"/>
-                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://onto.nerc.ac.uk/cpm#scalarComparison"/>
-                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://onto.nerc.ac.uk/cpm#scalarUnitOfMeasure"/>
-                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://onto.nerc.ac.uk/cpm#scalarValue"/>
-                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <skos:notation rdf:datatype="http://vocab.nerc.ac.uk/datatypes/datatypes.xml#OPMClassName">
-            ScalarConstraint
-        </skos:notation>
-        <skos:definition xml:lang="en">
-            A numerical scalar constraint on some property (e.g. length &gt;= 1m)
-        </skos:definition>
-    </owl:Class>
-    
-
-
-    <!-- http://onto.nerc.ac.uk/cpm#StatisticalMeasure -->
-
-    <owl:Class rdf:about="http://onto.nerc.ac.uk/cpm#StatisticalMeasure">
+    <owl:Class rdf:about="http://purl.org/voc/cpm#StatisticalMeasure">
         <rdfs:label xml:lang="en">Statistical Measure</rdfs:label>
         <rdfs:subClassOf rdf:resource="&skos;Concept"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://onto.nerc.ac.uk/cpm#aggregationTimePeriod"/>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#aggregationArea"/>
                 <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://onto.nerc.ac.uk/cpm#aggregationArea"/>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#aggregationArea"/>
                 <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://onto.nerc.ac.uk/cpm#aggregationTimePeriod"/>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#derivedFrom"/>
                 <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://onto.nerc.ac.uk/cpm#aggregationVolume"/>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#aggregationLength"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#aggregationTimePeriod"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#aggregationTimePeriod"/>
                 <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://onto.nerc.ac.uk/cpm#statmLabel"/>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#statmLabel"/>
                 <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://onto.nerc.ac.uk/cpm#aggregationArea"/>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#otherAggregation"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#aggregationVolume"/>
                 <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://onto.nerc.ac.uk/cpm#aggregationLength"/>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#statmLabel"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#aggregationVolume"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#derivedFrom"/>
                 <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://onto.nerc.ac.uk/cpm#otherAggregation"/>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#otherAggregation"/>
                 <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://onto.nerc.ac.uk/cpm#statmLabel"/>
-                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://onto.nerc.ac.uk/cpm#derivedFrom"/>
-                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://onto.nerc.ac.uk/cpm#aggregationLength"/>
-                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://onto.nerc.ac.uk/cpm#otherAggregation"/>
-                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://onto.nerc.ac.uk/cpm#derivedFrom"/>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#aggregationLength"/>
                 <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://onto.nerc.ac.uk/cpm#aggregationVolume"/>
-                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <skos:notation rdf:datatype="http://vocab.nerc.ac.uk/datatypes/datatypes.xml#OPMClassName">
             Statistical Measure
         </skos:notation>
         <skos:definition xml:lang="en">
-            A description of some statistical measure e.g. &quot;daily maximum&quot;.
-            The measure is usually some function over some time (e.g. an hour,
-            a day) or space (e.g. a length, area or volume). Other aggregation
-            types can be supported by the &apos;otherAggregation&apos; extension point.
+            A description of some statistical measure e.g. &quot;daily maximum&quot;. The measure is usually some function over some time (e.g. an hour, a day) or space (e.g. a length, area or volume). Other aggregation types can be supported by the &apos;otherAggregation&apos; extension point.
         </skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/voc/cpm#Substance -->
+
+    <owl:Class rdf:about="http://purl.org/voc/cpm#Substance">
+        <rdfs:label xml:lang="en">Substance</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/voc/cpm#ObjectOfInterest"/>
+        <rdfs:subClassOf rdf:resource="&skos;Concept"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/voc/cpm#casNumber"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://purl.org/voc/cpm#Taxon"/>
+        <skos:definition xml:lang="en">A specialisation of ObjectOfInterest for use where the Object of Interest is a chemical substance</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/voc/cpm#Taxon -->
+
+    <owl:Class rdf:about="http://purl.org/voc/cpm#Taxon">
+        <rdfs:label xml:lang="en">Taxon</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://purl.org/voc/cpm#ObjectOfInterest"/>
+        <rdfs:subClassOf rdf:resource="&skos;Concept"/>
+        <skos:definition xml:lang="en">A specialisation of ObjectOfInterest for use where the Object of Interest is an organism with a binomial classification</skos:definition>
     </owl:Class>
     
 
@@ -1162,83 +825,6 @@
         <rdfs:label xml:lang="en">SKOS Concept</rdfs:label>
         <rdfs:comment xml:lang="en">The CPM ontology defines many of its classes as subclassess of SKOS Concwepts in order to allow the use of vocabulary entries from SKOS Concept Schemes or Collections as instances of the CPM ontology classes.</rdfs:comment>
     </rdf:Description>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Individuals
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://onto.nerc.ac.uk/cpm#equalTo -->
-
-    <owl:Thing rdf:about="http://onto.nerc.ac.uk/cpm#equalTo">
-        <rdf:type rdf:resource="http://onto.nerc.ac.uk/cpm#ComparisonOperatorValue"/>
-        <rdf:type rdf:resource="&owl;NamedIndividual"/>
-        <rdfs:label xml:lang="en">equalTo</rdfs:label>
-        <skos:definition xml:lang="en">Exactly equal to</skos:definition>
-    </owl:Thing>
-    
-
-
-    <!-- http://onto.nerc.ac.uk/cpm#greaterThan -->
-
-    <owl:Thing rdf:about="http://onto.nerc.ac.uk/cpm#greaterThan">
-        <rdf:type rdf:resource="http://onto.nerc.ac.uk/cpm#ComparisonOperatorValue"/>
-        <rdf:type rdf:resource="&owl;NamedIndividual"/>
-        <rdfs:label xml:lang="en">greaterThan</rdfs:label>
-        <skos:definition xml:lang="en">Greater than</skos:definition>
-    </owl:Thing>
-    
-
-
-    <!-- http://onto.nerc.ac.uk/cpm#greaterThanOrEqualTo -->
-
-    <owl:Thing rdf:about="http://onto.nerc.ac.uk/cpm#greaterThanOrEqualTo">
-        <rdf:type rdf:resource="http://onto.nerc.ac.uk/cpm#ComparisonOperatorValue"/>
-        <rdf:type rdf:resource="&owl;NamedIndividual"/>
-        <rdfs:label xml:lang="en">greaterThanOrEqualTo</rdfs:label>
-        <skos:definition xml:lang="en">Greater than or exactly equal to</skos:definition>
-    </owl:Thing>
-    
-
-
-    <!-- http://onto.nerc.ac.uk/cpm#lessThan -->
-
-    <owl:Thing rdf:about="http://onto.nerc.ac.uk/cpm#lessThan">
-        <rdf:type rdf:resource="http://onto.nerc.ac.uk/cpm#ComparisonOperatorValue"/>
-        <rdf:type rdf:resource="&owl;NamedIndividual"/>
-        <rdfs:label xml:lang="en">lessThan</rdfs:label>
-        <skos:definition xml:lang="en">Less than</skos:definition>
-    </owl:Thing>
-    
-
-
-    <!-- http://onto.nerc.ac.uk/cpm#lessThanOrEqualTo -->
-
-    <owl:Thing rdf:about="http://onto.nerc.ac.uk/cpm#lessThanOrEqualTo">
-        <rdf:type rdf:resource="http://onto.nerc.ac.uk/cpm#ComparisonOperatorValue"/>
-        <rdf:type rdf:resource="&owl;NamedIndividual"/>
-        <rdfs:label xml:lang="en">lessThanOrEqualTo</rdfs:label>
-        <skos:definition xml:lang="en">Less than or exactly equal to</skos:definition>
-    </owl:Thing>
-    
-
-
-    <!-- http://onto.nerc.ac.uk/cpm#notEqualTo -->
-
-    <owl:Thing rdf:about="http://onto.nerc.ac.uk/cpm#notEqualTo">
-        <rdf:type rdf:resource="http://onto.nerc.ac.uk/cpm#ComparisonOperatorValue"/>
-        <rdf:type rdf:resource="&owl;NamedIndividual"/>
-        <rdfs:label xml:lang="en">notEqualTo</rdfs:label>
-        <skos:definition xml:lang="en">Not exactly equal to</skos:definition>
-    </owl:Thing>
 </rdf:RDF>
 
 
