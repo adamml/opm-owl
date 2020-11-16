@@ -7,7 +7,7 @@ Markdown documentation created by [pyLODE](http://github.com/rdflib/pyLODE) 2.8.
 * **URI**
   * `http://purl.org/voc/cpm`
 * **Ontology RDF**
-  * [RDF](https://raw.githack.com/adamml/opm-owl/master/cpm.ttl)
+  * [turtle](https://raw.githack.com/adamml/opm-owl/master/cpm.ttl)
 ### Description
 <p>An OWL representation of the Complex Property Model (CPM).</p>
 <p>The ontology here encodes the CPM defined in the INSPIRE guidelines for Observations &amp; Measurements and Sensor Web Enablement-related standards document.</p>
