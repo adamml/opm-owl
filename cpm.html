@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+            Complex Property Model ontology
+        </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    
+    <style>
+        #pylode {
+            position: fixed;
+            top: 130px;
+            left: -60px;
+            font-size: small;
+            transform: rotate(-90deg);
+            color: grey;
+        }
+        #pylode a {
+            font-size: 2em;
+            font-weight: bold;
+            text-decoration: none;
+            color: #005A9C;
+        }
+        #pylode a:hover {
+            color: #333;
+        }
+
+        .cardinality {
+            font-style: italic;
+            color: #aa00aa;
+        }
+
+        dt {
+            font-weight: bold;
+            padding: 5px 0 5px 0;
+        }
+
+        ul.hlist {
+            list-style-type: none;
+            border: 1px solid navy;
+            padding:5px;
+            background-color: #F4FFFF;
+        }
+
+        ul.hierarchy {
+            border: 1px solid navy;
+            padding: 5px 25px 5px 25px;
+            background-color: #F4FFFF;
+        }
+
+
+        ul.hlist li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        .entity {
+            border: 1px solid navy;
+            margin:5px 0 5px 0;
+            padding: 5px;
+        }
+
+        .entity th {
+            width: 150px;
+            vertical-align: top;
+        }
+
+        .entity th,
+        .entity td {
+            padding-bottom: 20px;
+        }
+
+        .entity table th {
+            text-align: left;
+        }
+
+        section#overview img {
+            max-width: 1000px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            text-align: left
+        }
+        h1, h2, h3 {
+            color: #005A9C; background: white
+        }
+        h1 {
+            font: 170% sans-serif;
+            line-height: 110%;
+        }
+        h2 {
+            font: 140% sans-serif;
+            margin-top:40px;
+        }
+        h3 {
+            font: 120% sans-serif;
+            margin-top: 3px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid navy;
+        }
+        h4 { font: bold 100% sans-serif }
+        h5 { font: italic 100% sans-serif }
+        h6 { font: small-caps 100% sans-serif }
+
+
+        body {
+            padding: 2em 70px 2em 70px;
+            margin: 0;
+            font-family: sans-serif;
+            color: black;
+            background: white;
+            background-position: top left;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            text-align: justify;
+        }
+
+        section {
+            max-width: 1500px;
+        }
+
+        .figure {
+            margin-bottom: 20px;
+        }
+
+        :link { color: #00C; background: transparent }
+        :visited { color: #609; background: transparent }
+        a:active { color: #C00; background: transparent }
+
+        .sup-c,
+        .sup-op,
+        .sup-fp,
+        .sup-dp,
+        .sup-ap,
+        .sup-p,
+        .sup-ni,
+        .sup-cp,
+        .sup-cl {
+            cursor:help;
+            margin-left: 3px;
+        }
+
+        .sup-c {
+            color:orange;
+        }
+
+        .sup-op {
+            color:navy;
+        }
+
+        .sup-fp {
+            color:lightskyblue;
+        }
+
+        .sup-dp {
+            color:green;
+        }
+
+        .sup-ap {
+            color:darkred;
+        }
+
+        .sup-p {
+            color:black;
+        }
+
+        .sup-ni {
+            color:brown;
+        }
+
+        .sup-cp {
+            color:orange;
+        }
+
+        .sup-cl {
+            color:darkred;
+        }
+
+        code {
+            font-size: large;
+            color: darkred;
+        }
+
+        /* less prominent links for properties */
+        .proplink {
+            color: #336;
+            text-decoration: none;
+        }
+    </style>
+    
+    <script type="application/ld+json">
+      [
+  {
+    "@id": "http://purl.org/voc/cpm",
+    "@type": [
+      "https://schema.org/DefinedTermSet"
+    ],
+    "https://schema.org/description": [
+      {
+        "@value": "<p>An OWL representation of the Complex Property Model (CPM).</p>\n<p>The ontology here encodes the CPM defined in the INSPIRE guidelines for Observations &amp; Measurements and Sensor Web Enablement-related standards document.</p>"
+      }
+    ],
+    "https://schema.org/name": [
+      {
+        "@value": "\n            Complex Property Model ontology\n        "
+      }
+    ]
+  }
+]
+    </script>
+</head>
+<body>
+  <div id="pylode">made by <a href="http://github.com/rdflib/pyLODE">
+    <span style="color:#329545;">p</span><span style="color:#f9cb33;">y</span>LODE</a>
+    <span style="font-size:smaller;">2.8.3</span>
+  </div>
+  <h1>
+            Complex Property Model ontology
+        </h1>
+<section id="metadata">
+    <h2 style="display:none;">Metadata</h2>
+    <dl>
+        <dt>URI</dt>
+        <dd><code>http://purl.org/voc/cpm</code></dd>
+        <dt>Ontology RDF</dt>
+        <dd><a href="data_file.ttl">RDF (turtle)</a></dd>
+    </dl>
+    <h2>Description</h2>
+    <div id="description">
+        <p>An OWL representation of the Complex Property Model (CPM).</p>
+<p>The ontology here encodes the CPM defined in the INSPIRE guidelines for Observations &amp; Measurements and Sensor Web Enablement-related standards document.</p>
+    </div>
+</section>
+<section id="toc">
+    <h2>Table of Contents</h2>
+    <ol>
+        <li><a href="#classes">Classes</a></li>
+        <li><a href="#objectproperties">Object Properties</a></li>
+        <li><a href="#datatypeproperties">Datatype Properties</a></li>
+        <li><a href="#annotationproperties">Annotation Properties</a></li>
+        <li><a href="#namespaces">Namespaces</a></li>
+        <li><a href="#legend">Legend</a></li>
+    </ol>
+</section>
+<section id="overview">
+    <h2>Overview</h2>
+    <div class="figure">
+        <div style="width:500px; height:50px; background-color: lightgrey; border:solid 2px grey; padding:10px;margin-bottom:5px; text-align:center;">Pictures say 1,000 words</div>
+        <div class="caption"><strong>Figure 1:</strong> Ontology overview</div>
+    </div>
+</section>
+  <section id="classes">
+    <h2>Classes <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#AbstractObservableProperty">Abstract Observable Property</a></li>
+        <li><a href="#CompositeObservableProperty">Composite Observable Property</a></li>
+        <li><a href="#Constraint">Constraint</a></li>
+        <li><a href="#Matrix1">Matrix</a></li>
+        <li><a href="#ObjectOfInterest">Object of Interest</a></li>
+        <li><a href="#ObservableProperty">Observable Property</a></li>
+        <li><a href="#Phenomenon">Phenomenon</a></li>
+        <li><a href="#Property">Property</a></li>
+        <li><a href="#StatisticalMeasure">Statistical Measure</a></li>
+        <li><a href="#Substance">Substance</a></li>
+        <li><a href="#Taxon">Taxon</a></li>
+    </ul>
+    <div class="entity class" id="AbstractObservableProperty">
+        <h3>Abstract Observable Property<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/voc/cpm#AbstractObservableProperty</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>The AbstractObservableProperty class is the root of the ObservableProperty model. It is implemented  by two specialisations: ObservableProperty and CompositeObservableProperty.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#CompositeObservableProperty">CompositeObservableProperty</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#ObservableProperty">ObservableProperty</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#component">component</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="CompositeObservableProperty">
+        <h3>Composite Observable Property<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/voc/cpm#CompositeObservableProperty</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>Usually, when performing multiple observations on one featureOfInterest, one provides a separate ObservableProperty element for each Phenomenon being observed. However, in certain cases where either a) there is a strong link between the Phenomena or b) the multiple phenomena are clearly observed as part of the same Observation, these Phenomena may be provided together in one Observation. In this case a CompositeObservableProperty can be defined that groups together multiple Phenomena (ObservableProperty) into one CompositeObservableProperty element. </p>
+<p>An example of a strongly linked pair of Phenomena is wind speed and wind direction</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#AbstractObservableProperty">AbstractObservableProperty</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="#count">count</a><sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
+                    <a href="#component">component</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">min</span> 2<br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="#count">count</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                    <a href="#component">component</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Constraint">
+        <h3>Constraint<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/voc/cpm#Constraint</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>In order to provide other constraints on ObservableProperties, the type Constraint has been created and can be associated with an ObservableProperty. Constraints may be specialised or the simple description attribute may be used to provide a free text description of the constraint. </p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="#label">label</a><sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">max</span> 1<br/>
+                    <a href="#label">label</a><sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">min</span> 0<br/>
+                    <a href="#ConstrainedProperty">constraintProperty</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">max</span> 1<br/>
+                    <a href="#ConstrainedProperty">constraintProperty</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">min</span> 0<br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="#label">label</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                    <a href="#ConstrainedProperty">constraintProperty</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#restriction">restriction</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Matrix1">
+        <h3>Matrix<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/voc/cpm#Matrix</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>The matrix is a special case of a feature-of-interest that provides the context (container feeaure or medium) for an observable property.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#Matrix">matrix</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="ObjectOfInterest">
+        <h3>Object of Interest<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/voc/cpm#ObjectOfInterest</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>The substance, taxon or other physical/chemical phenomenon of the Feature Of Interest that is being observed. E.g.  Waves, Rainfall, Calluna Vulgaris, Aluminium.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Sub-classes</th>
+                <td>
+                    <a href="#Substance">Substance</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Phenomenon">Phenomenon</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#Taxon">Taxon</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#ObjectofInterest">objectOfInterest</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="ObservableProperty">
+        <h3>Observable Property<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/voc/cpm#ObservableProperty</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>At its simplest an ObservableProperty simply carries a reference to a phenomenon definition in a codelist with optional units of measure. However an ObservableProperty definition may be augmented using Constraints and/or Statistical Measures to create a more full definition of the observed property. </p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#AbstractObservableProperty">AbstractObservableProperty</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="#ObjectofInterest">objectOfInterest</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">min</span> 1 <a href="#ObjectOfInterest">ObjectOfInterest</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#restriction">restriction</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">min</span> 0<br/>
+                    <a href="#statisticalMeasure">statisticalMeasure</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">min</span> 0<br/>
+                    <a href="http://purl.org/voc/cpm#opUnitOfMeasure">opUnitOfMeasure</a> <span class="cardinality">max</span> 1<br/>
+                    <a href="#property">property</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1 <a href="#Property">Property</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://purl.org/voc/cpm#opUnitOfMeasure">opUnitOfMeasure</a> <span class="cardinality">min</span> 0<br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="#Matrix">matrix</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#property">property</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#statisticalMeasure">statisticalMeasure</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#ObjectofInterest">objectOfInterest</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#canonicalunit">canonicalUnit</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#restriction">restriction</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#unitofmeasure">unitOfMeasure</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Phenomenon">
+        <h3>Phenomenon<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/voc/cpm#Phenomenon</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>A specialisation of ObjectOfInterest for use where the Object of Interest is a physical phenomen, such as "throughfall" or "waves"</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#ObjectOfInterest">ObjectOfInterest</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Property">
+        <h3>Property<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/voc/cpm#Property</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>The property of the environment which the ObservableProperty is describing.</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#property">property</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="StatisticalMeasure">
+        <h3>Statistical Measure<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/voc/cpm#StatisticalMeasure</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <pre><code>        A description of some statistical measure e.g. "daily maximum". The measure is usually some function over some time (e.g. an hour, a day) or space (e.g. a length, area or volume). Other aggregation types can be supported by the 'otherAggregation' extension point.
+</code></pre>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="#derivedFrom">derivedFrom</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">min</span> 0<br/>
+                    <a href="#derivedFrom">derivedFrom</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">max</span> 1<br/>
+                    <a href="#aggregationLength">aggregationLength</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">max</span> 1<br/>
+                    <a href="#aggregationTimePeriod">aggregationTimePeriod</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">max</span> 1<br/>
+                    <a href="#label">label</a><sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">min</span> 0<br/>
+                    <a href="#aggregationArea">aggregationArea</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">min</span> 0<br/>
+                    <a href="#otherAggregation">otherAggregation</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">max</span> 1<br/>
+                    <a href="#aggregationVolume">aggregationVolume</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">max</span> 1<br/>
+                    <a href="#aggregationLength">aggregationLength</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">min</span> 0<br/>
+                    <a href="#aggregationArea">aggregationArea</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">max</span> 1<br/>
+                    <a href="#aggregationTimePeriod">aggregationTimePeriod</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">min</span> 0<br/>
+                    <a href="#label">label</a><sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">max</span> 1<br/>
+                    <a href="#aggregationVolume">aggregationVolume</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">min</span> 0<br/>
+                    <a href="#otherAggregation">otherAggregation</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">min</span> 0<br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="#derivedFrom">derivedFrom</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#aggregation">aggregation</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#label">label</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In range of</th>
+                <td>
+                    <a href="#derivedFrom">derivedFrom</a><sup class="sup-op" title="object property">op</sup><br/>
+                    <a href="#statisticalMeasure">statisticalMeasure</a><sup class="sup-op" title="object property">op</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Substance">
+        <h3>Substance<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/voc/cpm#Substance</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>A specialisation of ObjectOfInterest for use where the Object of Interest is a chemical substance</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="#ObjectOfInterest">ObjectOfInterest</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+            <tr>
+                <th>Restrictions</th>
+                <td>
+                    <a href="#CASNumber">casNumber</a><sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">min</span> 0<br/>
+                </td>
+            </tr>
+            <tr>
+                <th>In domain of</th>
+                <td>
+                    <a href="#CASNumber">casNumber</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity class" id="Taxon">
+        <h3>Taxon<sup title="class" class="sup-c">c</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/voc/cpm#Taxon</code></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <p>A specialisation of ObjectOfInterest for use where the Object of Interest is an organism with a binomial classification</p>
+                </td>
+            </tr>
+            <tr>
+                <th>Super-classes</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a><sup class="sup-c" title="class">c</sup><br/>
+                    <a href="#ObjectOfInterest">ObjectOfInterest</a><sup class="sup-c" title="class">c</sup><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+</section>
+<section id="objectproperties">
+    <h2>Object Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#aggregation">aggregation</a></li>
+        <li><a href="#aggregationArea">aggregationArea</a></li>
+        <li><a href="#aggregationLength">aggregationLength</a></li>
+        <li><a href="#aggregationTimePeriod">aggregationTimePeriod</a></li>
+        <li><a href="#aggregationVolume">aggregationVolume</a></li>
+        <li><a href="#canonicalunit">canonical unit</a></li>
+        <li><a href="#component">component</a></li>
+        <li><a href="#ConstrainedProperty">Constrained Property</a></li>
+        <li><a href="#derivedFrom">derivedFrom</a></li>
+        <li><a href="#Matrix">Matrix</a></li>
+        <li><a href="#ObjectofInterest">Object of Interest</a></li>
+        <li><a href="#otherAggregation">otherAggregation</a></li>
+        <li><a href="#property">property</a></li>
+        <li><a href="#restriction">restriction</a></li>
+        <li><a href="#statisticalMeasure">statisticalMeasure</a></li>
+        <li><a href="#unitofmeasure">unit of measure</a></li>
+        <li><a href="#related">related</a></li>
+    </ul>
+    <div class="entity property" id="aggregation">
+        <h3>aggregation<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/voc/cpm#aggregation</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#related">skos:related</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#StatisticalMeasure">StatisticalMeasure</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2001/XMLSchema#anyURI">xsd:anyURI</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="aggregationArea">
+        <h3>aggregationArea<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/voc/cpm#aggregationArea</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#related">skos:related</a><sup class="sup-op" title="object property">op</sup>
+                    <a href="#aggregation">aggregation</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="aggregationLength">
+        <h3>aggregationLength<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/voc/cpm#aggregationLength</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#related">skos:related</a><sup class="sup-op" title="object property">op</sup>
+                    <a href="#aggregation">aggregation</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="aggregationTimePeriod">
+        <h3>aggregationTimePeriod<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/voc/cpm#aggregationTimePeriod</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#related">skos:related</a><sup class="sup-op" title="object property">op</sup>
+                    <a href="#aggregation">aggregation</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="aggregationVolume">
+        <h3>aggregationVolume<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/voc/cpm#aggregationVolume</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="#aggregation">aggregation</a><sup class="sup-op" title="object property">op</sup>
+                    <a href="http://www.w3.org/2004/02/skos/core#related">skos:related</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="canonicalunit">
+        <h3>canonical unit<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/voc/cpm#canonicalUnit</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="#unitofmeasure">unitOfMeasure</a><sup class="sup-op" title="object property">op</sup>
+                    <a href="http://www.w3.org/2004/02/skos/core#related">skos:related</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#ObservableProperty">ObservableProperty</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="component">
+        <h3>component<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/voc/cpm#component</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#related">skos:related</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#CompositeObservableProperty">CompositeObservableProperty</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="#AbstractObservableProperty">AbstractObservableProperty</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="ConstrainedProperty">
+        <h3>Constrained Property<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/voc/cpm#constraintProperty</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#related">skos:related</a><sup class="sup-op" title="object property">op</sup>
+                    <a href="#property">property</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#Constraint">Constraint</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2001/XMLSchema#anyURI">xsd:anyURI</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="derivedFrom">
+        <h3>derivedFrom<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/voc/cpm#derivedFrom</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#related">skos:related</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#StatisticalMeasure">StatisticalMeasure</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="#StatisticalMeasure">StatisticalMeasure</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="Matrix">
+        <h3>Matrix<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/voc/cpm#matrix</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#related">skos:related</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#ObservableProperty">ObservableProperty</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="#Matrix1">Matrix</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="ObjectofInterest">
+        <h3>Object of Interest<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/voc/cpm#objectOfInterest</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#related">skos:related</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#ObservableProperty">ObservableProperty</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="#ObjectOfInterest">ObjectOfInterest</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="otherAggregation">
+        <h3>otherAggregation<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/voc/cpm#otherAggregation</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="#aggregation">aggregation</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="property">
+        <h3>property<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/voc/cpm#property</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#related">skos:related</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#ObservableProperty">ObservableProperty</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2001/XMLSchema#anyURI">xsd:anyURI</a><sup class="sup-c" title="class">c</sup>
+                    <a href="#Property">Property</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="restriction">
+        <h3>restriction<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/voc/cpm#restriction</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#related">skos:related</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#ObservableProperty">ObservableProperty</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="#Constraint">Constraint</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="statisticalMeasure">
+        <h3>statisticalMeasure<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/voc/cpm#statisticalMeasure</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#related">skos:related</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#ObservableProperty">ObservableProperty</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="#StatisticalMeasure">StatisticalMeasure</a><sup class="sup-c" title="class">c</sup>
+                    <a href="http://www.w3.org/2001/XMLSchema#anyURI">xsd:anyURI</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="unitofmeasure">
+        <h3>unit of measure<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/voc/cpm#unitOfMeasure</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#related">skos:related</a><sup class="sup-op" title="object property">op</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#ObservableProperty">ObservableProperty</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="related">
+        <h3>related<sup title="object property" class="sup-op">op</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/2004/02/skos/core#related</code></td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<section id="datatypeproperties">
+    <h2>Datatype Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#CASNumber">CAS Number</a></li>
+        <li><a href="#count">count</a></li>
+        <li><a href="#label">label</a></li>
+        <li><a href="#value">value</a></li>
+        <li><a href="#altLabel">altLabel</a></li>
+        <li><a href="#prefLabel">prefLabel</a></li>
+    </ul>
+    <div class="entity property" id="CASNumber">
+        <h3>CAS Number<sup title="datatype property" class="sup-dp">dp</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/voc/cpm#casNumber</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#altLabel">skos:altLabel</a><sup class="sup-dp" title="datatype property">dp</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#Substance">Substance</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="count">
+        <h3>count<sup title="datatype property" class="sup-dp">dp</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/voc/cpm#count</code></td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#CompositeObservableProperty">CompositeObservableProperty</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">xsd:nonNegativeInteger</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="label">
+        <h3>label<sup title="datatype property" class="sup-dp">dp</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/voc/cpm#label</code></td>
+            </tr>
+            <tr>
+                <th>Super-properties</th>
+                <td>
+                    <a href="http://www.w3.org/2004/02/skos/core#prefLabel">skos:prefLabel</a><sup class="sup-dp" title="datatype property">dp</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Domain(s)</th>
+                <td>
+                    <a href="#Constraint">Constraint</a><sup class="sup-c" title="class">c</sup>
+                    <a href="#StatisticalMeasure">StatisticalMeasure</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+            <tr>
+                <th>Range(s)</th>
+                <td>
+                    <a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a><sup class="sup-c" title="class">c</sup>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="value">
+        <h3>value<sup title="datatype property" class="sup-dp">dp</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://purl.org/voc/cpm#value</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="altLabel">
+        <h3>altLabel<sup title="datatype property" class="sup-dp">dp</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/2004/02/skos/core#altLabel</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="prefLabel">
+        <h3>prefLabel<sup title="datatype property" class="sup-dp">dp</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/2004/02/skos/core#prefLabel</code></td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<section id="annotationproperties">
+    <h2>Annotation Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+        <li><a href="#definition">definition</a></li>
+        <li><a href="#notation">notation</a></li>
+    </ul>
+    <div class="entity property" id="definition">
+        <h3>definition<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/2004/02/skos/core#definition</code></td>
+            </tr>
+        </table>
+    </div>
+    <div class="entity property" id="notation">
+        <h3>notation<sup title="annotation property" class="sup-ap">ap</sup></h3>
+        <table>
+            <tr>
+                <th>URI</th>
+                <td><code>http://www.w3.org/2004/02/skos/core#notation</code></td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+  
+  <section id="namedindividuals">
+    <h2>Named Individuals <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <ul class="hlist">
+    </ul>
+</section>
+  
+  <section id="namespaces">
+    <h2>Namespaces <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
+    <dl>
+        <dt>:</dt>
+        <dd><code>http://purl.org/voc/cpm#</code></dd>
+        <dt>owl</dt>
+        <dd><code>http://www.w3.org/2002/07/owl#</code></dd>
+        <dt>prov</dt>
+        <dd><code>http://www.w3.org/ns/prov#</code></dd>
+        <dt>rdf</dt>
+        <dd><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></dd>
+        <dt>rdfs</dt>
+        <dd><code>http://www.w3.org/2000/01/rdf-schema#</code></dd>
+        <dt>sdo</dt>
+        <dd><code>https://schema.org/</code></dd>
+        <dt>skos</dt>
+        <dd><code>http://www.w3.org/2004/02/skos/core#</code></dd>
+        <dt>vann</dt>
+        <dd><code>http://purl.org/vocab/vann/</code></dd>
+        <dt>xsd</dt>
+        <dd><code>http://www.w3.org/2001/XMLSchema#</code></dd>
+    </dl>
+</section>
+  <section id="legend">
+      <h2>Legend</h2>
+      <table class="entity">
+          <tr><td><sup class="sup-c" title="Classes">c</sup></td><td>Classes</td></tr>
+          <tr><td><sup class="sup-op" title="Object Properties">op</sup></td><td>Object Properties</td></tr>
+          <tr><td><sup class="sup-fp" title="Functional Properties">fp</sup></td><td>Functional Properties</td></tr>
+          <tr><td><sup class="sup-dp" title="Data Properties">dp</sup></td><td>Data Properties</td></tr>
+          <tr><td><sup class="sup-ap" title="Annotation Properties">dp</sup></td><td>Annotation Properties</td></tr>
+          <tr><td><sup class="sup-p" title="Properties">p</sup></td><td>Properties</td></tr>
+          <tr><td><sup class="sup-ni" title="Named Individuals">ni</sup></td><td>Named Individuals</td></tr>
+      </table>
+  </section>
+</body>
+</html>
