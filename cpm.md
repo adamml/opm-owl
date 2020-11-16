@@ -1,7 +1,6 @@
 Markdown documentation created by [pyLODE](http://github.com/rdflib/pyLODE) 2.8.3
 
-# 
-            Complex Property Model ontology
+# Complex Property Model ontology
         
 
 ## Metadata
