@@ -1,0 +1,363 @@
+@prefix : <http://purl.org/voc/cpm#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://purl.org/voc/cpm> a owl:Ontology ;
+    rdfs:label """
+            Complex Property Model ontology
+        """@en ;
+    vann:preferredNamespacePrefix "cpm" ;
+    vann:preferredNamespaceUri "http://purl.org/voc/cpm#" ;
+    rdfs:comment """An OWL representation of the Complex Property Model (CPM).
+
+ The ontology here encodes the CPM defined in the INSPIRE guidelines for Observations & Measurements and Sensor Web Enablement-related standards document.
+        """@en .
+
+:Phenomenon a owl:Class ;
+    rdfs:label "Phenomenon"@en ;
+    rdfs:subClassOf :ObjectOfInterest,
+        skos:Concept ;
+    owl:disjointWith :Substance,
+        :Taxon ;
+    skos:definition "A specialisation of ObjectOfInterest for use where the Object of Interest is a physical phenomen, such as \"throughfall\" or \"waves\""@en .
+
+:canonicalUnit a owl:ObjectProperty ;
+    rdfs:label "canonical unit"@en ;
+    rdfs:domain :ObservableProperty ;
+    rdfs:subPropertyOf :unitOfMeasure,
+        skos:related .
+
+:matrix a owl:ObjectProperty ;
+    rdfs:label "Matrix" ;
+    rdfs:domain :ObservableProperty ;
+    rdfs:range :Matrix ;
+    rdfs:subPropertyOf skos:related .
+
+:value a owl:DatatypeProperty .
+
+<http://vocab.nerc.ac.uk/datatypes/datatypes.xml#OPMClassName> a rdfs:Datatype .
+
+skos:definition a owl:AnnotationProperty .
+
+skos:notation a owl:AnnotationProperty .
+
+:Matrix a owl:Class ;
+    rdfs:label "Matrix"@en ;
+    rdfs:subClassOf skos:Concept ;
+    skos:definition "The matrix is a special case of a feature-of-interest that provides the context (container feeaure or medium) for an observable property."@en .
+
+:casNumber a owl:DatatypeProperty ;
+    rdfs:label "CAS Number"@en ;
+    rdfs:domain :Substance ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf skos:altLabel ;
+    skos:definition """
+            A label for a substance allowing it to be identified within the Chemical Abstracts Service (CAS)
+        """@en .
+
+:component a owl:ObjectProperty ;
+    rdfs:domain :CompositeObservableProperty ;
+    rdfs:range :AbstractObservableProperty ;
+    rdfs:subPropertyOf skos:related .
+
+:count a owl:DatatypeProperty ;
+    rdfs:domain :CompositeObservableProperty ;
+    rdfs:range xsd:nonNegativeInteger .
+
+:objectOfInterest a owl:ObjectProperty ;
+    rdfs:label "Object of Interest" ;
+    rdfs:domain :ObservableProperty ;
+    rdfs:range :ObjectOfInterest ;
+    rdfs:subPropertyOf skos:related .
+
+:restriction a owl:ObjectProperty ;
+    rdfs:label "restriction"@en ;
+    rdfs:domain :ObservableProperty ;
+    rdfs:range :Constraint ;
+    rdfs:subPropertyOf skos:related .
+
+:statisticalMeasure a owl:DatatypeProperty,
+        owl:ObjectProperty ;
+    rdfs:label "Statistical Measure"@en,
+        "statisticalMeasure"@en ;
+    rdfs:domain :ObservableProperty ;
+    rdfs:range :StatisticalMeasure,
+        xsd:anyURI ;
+    rdfs:subPropertyOf skos:related ;
+    skos:definition """
+            A description of some statistical measure e.g. "daily maximum". The measure is usually some function over some time (e.g. an hour, a day) or space (e.g. a length, area or volume). Other aggregation types can be supported by the 'otherAggregation' extension point.
+        """@en ;
+    skos:notation """
+            Statistical Measure
+        """^^<http://vocab.nerc.ac.uk/datatypes/datatypes.xml#OPMClassName>.
+
+:unitOfMeasure a owl:ObjectProperty ;
+    rdfs:label "unit of measure"@en ;
+    rdfs:domain :ObservableProperty ;
+    rdfs:subPropertyOf skos:related .
+
+skos:altLabel a owl:DatatypeProperty .
+
+skos:prefLabel a owl:DatatypeProperty .
+
+:CompositeObservableProperty a owl:Class ;
+    rdfs:label "Composite Observable Property"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :count ],
+        [ a owl:Restriction ;
+            owl:minCardinality "2"^^xsd:nonNegativeInteger ;
+            owl:onProperty :component ],
+        :AbstractObservableProperty,
+        skos:Concept ;
+    owl:disjointWith :ObservableProperty ;
+    skos:definition """ Usually, when performing multiple observations on one featureOfInterest, one provides a separate ObservableProperty element for each Phenomenon being observed. However, in certain cases where either a) there is a strong link between the Phenomena or b) the multiple phenomena are clearly observed as part of the same Observation, these Phenomena may be provided together in one Observation. In this case a CompositeObservableProperty can be defined that groups together multiple Phenomena (ObservableProperty) into one CompositeObservableProperty element. 
+            
+An example of a strongly linked pair of Phenomena is wind speed and wind direction
+        """@en ;
+    skos:notation """
+            CompositeObservableProperty
+        """^^<http://vocab.nerc.ac.uk/datatypes/datatypes.xml#OPMClassName>.
+
+:Property a owl:Class ;
+    rdfs:label "Property" ;
+    rdfs:subClassOf skos:Concept ;
+    skos:definition "The property of the environment which the ObservableProperty is describing." .
+
+:Substance a owl:Class ;
+    rdfs:label "Substance"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty :casNumber ],
+        :ObjectOfInterest,
+        skos:Concept ;
+    owl:disjointWith :Taxon ;
+    skos:definition "A specialisation of ObjectOfInterest for use where the Object of Interest is a chemical substance"@en .
+
+:Taxon a owl:Class ;
+    rdfs:label "Taxon"@en ;
+    rdfs:subClassOf :ObjectOfInterest,
+        skos:Concept ;
+    skos:definition "A specialisation of ObjectOfInterest for use where the Object of Interest is an organism with a binomial classification"@en .
+
+:aggregationArea a owl:DatatypeProperty,
+        owl:ObjectProperty ;
+    rdfs:label "aggregationArea"@en ;
+    rdfs:subPropertyOf :aggregation,
+        skos:related ;
+    skos:definition """
+            A two dimensional spatial range over which a statistic is calculated, for example
+            one square metre.
+        """@en,"""
+            A two dimensional spatial range over which a statistic is calculated, for example one square metre.
+        """@en .
+
+:aggregationLength a owl:DatatypeProperty,
+        owl:ObjectProperty ;
+    rdfs:label "aggregationLength"@en ;
+    rdfs:subPropertyOf :aggregation,
+        skos:related ;
+    skos:definition """
+            A one dimensional spatial range over which a statistic is calculated, for example
+            one metre.
+        """@en .
+
+:aggregationTimePeriod a owl:DatatypeProperty,
+        owl:ObjectProperty ;
+    rdfs:label "aggregationTimePeriod"@en ;
+    rdfs:subPropertyOf :aggregation,
+        skos:related ;
+    skos:definition """
+            A temporal range over which the statistic is calculated. e.g. A day, an hour
+        """@en .
+
+:aggregationVolume a owl:DatatypeProperty,
+        owl:ObjectProperty ;
+    rdfs:label "aggregationVolume"@en ;
+    rdfs:subPropertyOf :aggregation,
+        skos:related ;
+    skos:definition """
+            A three dimensional spatial range over which a statistic is calculated, for example
+            one cubic metre.
+        """@en .
+
+:constraintProperty a owl:DatatypeProperty,
+        owl:ObjectProperty ;
+    rdfs:label "Constrained Property" ;
+    rdfs:domain :Constraint ;
+    rdfs:range xsd:anyURI ;
+    rdfs:subPropertyOf :property,
+        skos:related ;
+    skos:notation """
+            constrainedProperty
+        """^^<http://vocab.nerc.ac.uk/datatypes/datatypes.xml#OPMClassName>.
+
+:derivedFrom a owl:DatatypeProperty,
+        owl:ObjectProperty ;
+    rdfs:label "derivedFrom"@en ;
+    rdfs:domain :StatisticalMeasure ;
+    rdfs:range :StatisticalMeasure ;
+    rdfs:subPropertyOf skos:related ;
+    skos:definition """
+            One statistical measure may be derived from another. e.g. Monthly Maximum 
+            Temperature may be derived from Daily Mean Temperatures.
+        """@en .
+
+:otherAggregation a owl:DatatypeProperty,
+        owl:ObjectProperty ;
+    rdfs:label "otherAggregation"@en ;
+    rdfs:subPropertyOf :aggregation ;
+    skos:definition """
+            Any other type of aggregation
+        """@en .
+
+:property a owl:DatatypeProperty,
+        owl:ObjectProperty ;
+    rdfs:label "property"@en ;
+    rdfs:domain :ObservableProperty ;
+    rdfs:range :Property,
+        xsd:anyURI ;
+    rdfs:subPropertyOf skos:related .
+
+:AbstractObservableProperty a owl:Class ;
+    rdfs:label "Abstract Observable Property"@en ;
+    rdfs:subClassOf skos:Concept ;
+    skos:definition """The AbstractObservableProperty class is the root of the ObservableProperty model. It is implemented  by two specialisations: ObservableProperty and CompositeObservableProperty.
+        """@en ;
+    skos:notation """
+            AbstractObservableProperty
+        """^^<http://vocab.nerc.ac.uk/datatypes/datatypes.xml#OPMClassName>.
+
+:Constraint a owl:Class ;
+    rdfs:label "Constraint"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+            owl:onProperty :constraintProperty ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :constraintProperty ],
+        [ a owl:Restriction ;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+            owl:onProperty :label ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :label ],
+        skos:Concept ;
+    skos:definition """In order to provide other constraints on ObservableProperties, the type Constraint has been created and can be associated with an ObservableProperty. Constraints may be specialised or the simple description attribute may be used to provide a free text description of the constraint. 
+        """@en ;
+    skos:notation """
+            Constraint
+        """^^<http://vocab.nerc.ac.uk/datatypes/datatypes.xml#OPMClassName>.
+
+:label a owl:DatatypeProperty ;
+    rdfs:label "label"@en ;
+    rdfs:domain :Constraint,
+        :StatisticalMeasure ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf skos:prefLabel ;
+    skos:definition """
+            A human readable title
+        """@en .
+
+:ObjectOfInterest a owl:Class ;
+    rdfs:label "Object of Interest"@en ;
+    rdfs:subClassOf skos:Concept ;
+    skos:definition "The substance, taxon or other physical/chemical phenomenon of the Feature Of Interest that is being observed. E.g.  Waves, Rainfall, Calluna Vulgaris, Aluminium."@en .
+
+:StatisticalMeasure a owl:Class ;
+    rdfs:label "Statistical Measure"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+            owl:onProperty :aggregationLength ],
+        [ a owl:Restriction ;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+            owl:onProperty :derivedFrom ],
+        [ a owl:Restriction ;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+            owl:onProperty :aggregationArea ],
+        [ a owl:Restriction ;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+            owl:onProperty :otherAggregation ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :aggregationLength ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :aggregationArea ],
+        [ a owl:Restriction ;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+            owl:onProperty :aggregationTimePeriod ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :otherAggregation ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :derivedFrom ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :label ],
+        [ a owl:Restriction ;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+            owl:onProperty :label ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :aggregationVolume ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :aggregationTimePeriod ],
+        [ a owl:Restriction ;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+            owl:onProperty :aggregationVolume ],
+        skos:Concept ;
+    skos:definition """
+            A description of some statistical measure e.g. "daily maximum". The measure is usually some function over some time (e.g. an hour, a day) or space (e.g. a length, area or volume). Other aggregation types can be supported by the 'otherAggregation' extension point.
+        """@en ;
+    skos:notation """
+            Statistical Measure
+        """^^<http://vocab.nerc.ac.uk/datatypes/datatypes.xml#OPMClassName>.
+
+:aggregation a owl:DatatypeProperty,
+        owl:ObjectProperty ;
+    rdfs:domain :StatisticalMeasure ;
+    rdfs:range xsd:anyURI ;
+    rdfs:subPropertyOf skos:related .
+
+:ObservableProperty a owl:Class ;
+    rdfs:label "Observable Property"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass :Property ;
+            owl:onProperty :property ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+            owl:onProperty :statisticalMeasure ],
+        [ a owl:Restriction ;
+            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onClass :ObjectOfInterest ;
+            owl:onProperty :objectOfInterest ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty :opUnitOfMeasure ],
+        [ a owl:Restriction ;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+            owl:onProperty :restriction ],
+        [ a owl:Restriction ;
+            owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+            owl:onProperty :opUnitOfMeasure ],
+        :AbstractObservableProperty,
+        skos:Concept ;
+    skos:definition """At its simplest an ObservableProperty simply carries a reference to a phenomenon definition in a codelist with optional units of measure. However an ObservableProperty definition may be augmented using Constraints and/or Statistical Measures to create a more full definition of the observed property. 
+        """@en ;
+    skos:notation """
+            ObservableProperty
+        """^^<http://vocab.nerc.ac.uk/datatypes/datatypes.xml#OPMClassName>.
+
+skos:Concept rdfs:label "SKOS Concept"@en ;
+    rdfs:comment "The CPM ontology defines many of its classes as subclassess of SKOS Concwepts in order to allow the use of vocabulary entries from SKOS Concept Schemes or Collections as instances of the CPM ontology classes."@en .
+
+skos:related a owl:ObjectProperty .
+
