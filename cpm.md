@@ -22,7 +22,7 @@ Markdown documentation created by [pyLODE](http://github.com/rdflib/pyLODE) 2.8.
 
 
 ## Overview
-
+![](cpm.png)
 **Figure 1:** Ontology overview
 ## Classes
 [Abstract Observable Property](#AbstractObservableProperty),
